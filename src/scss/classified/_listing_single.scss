@@ -1,0 +1,357 @@
+/*-------------------------------------
+#. Gallery
+---------------------------------------*/
+.rtcl-slider-wrapper {
+  margin-bottom: 30px !important;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: $borderRadius8;
+  box-shadow: 0 0 20px #f0f0f0;
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    background: var(--rtcl-primary-color);
+    color: $white;
+    width: 36px;
+    height: 36px;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+
+    &:after {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1;
+    }
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
+
+  .rtcl-slider {
+    &.swiper-horizontal:hover {
+      .swiper-button-next,
+      .swiper-button-prev {
+        visibility: visible;
+      }
+    }
+  }
+
+}
+
+/*-------------------------------------
+#. Content
+---------------------------------------*/
+.rtcl-single-listing-details {
+  border: none;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: $borderRadius8;
+  box-shadow: 0 0 20px #f0f0f0;
+
+  .rtcl-listing-title {
+    padding: 0;
+    margin: 0;
+    border: none;
+
+    .entry-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: $black;
+    }
+  }
+
+  .rtcl-listing-meta {
+    padding: 0;
+    margin: 0;
+
+    .rtcl-listing-meta-data {
+      font-size: 16px;
+
+      li {
+        color: $bodyColor;
+        margin-right: 15px;
+
+        svg,
+        i {
+          margin-right: 6px;
+        }
+      }
+    }
+  }
+
+  .rtcl-main-content-wrapper {
+    position: relative;
+    margin: 15px 0 0;
+    padding: 20px 0 0;
+    border-top: 1px solid $borderColor;
+
+    &:before {
+      position: absolute;
+      content: "";
+      left: 0;
+      height: 4px;
+      width: 40px;
+      top: -3px;
+      background-color: var(--rtcl-primary-color);
+    }
+
+  }
+
+  .rtcl-single-custom-fields {
+    margin-top: 25px;
+
+    .custom-field-properties {
+      margin: 0 !important;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      .list-group-item {
+        color: $bodyColor;
+        border: none;
+        padding: 6px 0;
+
+        .cfp-label {
+          color: #000000;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+/*-------------------------------------
+#. Social Share Modal
+---------------------------------------*/
+.rtcl-single-actions {
+  border-top: 1px solid $borderColor;
+  margin-top: 20px;
+  padding-top: 20px;
+
+  .rtcl-single-listing-action {
+    flex-direction: row;
+    margin: 0;
+
+    .list-group-item {
+      padding: 0;
+      border: none;
+      margin-right: 15px;
+
+      a {
+        display: inline-block;
+        background: none;
+        border: 1px solid #e7e7e7;
+        color: $bodyColor;
+        text-align: center;
+        box-shadow: 0 0 20px #f0f0f0;
+        border-radius: 50%;
+        padding: 0;
+        line-height: 36px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--rtcl-primary-color);
+          border-color: var(--rtcl-primary-color);
+          color: $white;
+        }
+
+        .rtcl-icon {
+          color: inherit;
+        }
+      }
+
+      .favourite-label {
+        display: none;
+      }
+
+      &.social-share-list {
+        button {
+          background: none;
+          border: 1px solid #e7e7e7;
+          color: $bodyColor;
+          box-shadow: 0 0 20px #f0f0f0;
+          border-radius: 50%;
+          padding: 0;
+          line-height: 1;
+          width: 40px;
+          height: 40px;
+
+          svg {
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+}
+
+.rtcl-social-share-modal {
+  .modal-header {
+    button.close {
+      width: 20px;
+      height: 20px;
+      background: var(--rtcl-primary-color);
+      color: $white;
+      line-height: 1;
+      border-radius: $borderRadius2;
+      font-size: 16px;
+    }
+  }
+
+  .modal-body {
+    .modal-title {
+      text-align: center;
+    }
+
+    .share-icon {
+      display: flex;
+
+      a {
+        color: $white;
+        margin: 0 10px 0 0;
+        padding: 0;
+        border: none;
+        font-size: 18px;
+        border-radius: $borderRadius4;
+        line-height: 40px;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+
+        .rtcl-icon {
+          color: inherit;
+        }
+
+        &.facebook {
+          background-color: $facebook;
+
+          &:hover {
+            background-color: #035ACC;
+          }
+        }
+
+        &.twitter {
+          background-color: $twitter;
+
+          &:hover {
+            background-color: #0075BC;
+          }
+        }
+
+        &.linkedin {
+          background-color: $linkedin;
+
+          &:hover {
+            background-color: #00527C;
+          }
+        }
+
+        &.whatsapp {
+          background-color: #1CB39B;
+
+          &:hover {
+            background-color: #19a08b;
+          }
+        }
+
+        &.telegram {
+          background-color: #0088cc;
+
+          &:hover {
+            background-color: #076a9d;
+          }
+        }
+
+        &.pinterest {
+          background-color: $pinterest;
+
+          &:hover {
+            background-color: #C90523;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+/*-------------------------------------
+#. Map
+---------------------------------------*/
+.classified-single-map {
+  .main-content {
+    .main-title {
+      font-size: 20px;
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    .rtcl-map {
+      margin: 0;
+    }
+  }
+}
+
+/*-------------------------------------
+#. Business Hour
+---------------------------------------*/
+.classified-single-business-hour {
+  .main-content {
+    .main-title {
+      font-size: 20px;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .rtclbh-block {
+      padding: 0;
+      margin: 0;
+      border: none;
+
+      .rtclbh {
+        border-color: $borderColor;
+
+        th,
+        td {
+          border-color: $borderColor;
+        }
+      }
+    }
+  }
+}
+
+/*-------------------------------------
+#. Social Profile
+---------------------------------------*/
+.rtcl-social-profile-wrap {
+  margin: 10px 0 0;
+  padding-left: 25px;
+  padding-right: 25px;
+  border: none;
+  border-radius: $borderRadius4;
+
+  .rtcl-social-profile-label {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .rtcl-social-profiles {
+    a {
+      color: $bodyColor;
+
+      i {
+        color: inherit;
+      }
+
+      &:hover {
+        color: var(--rtcl-primary-color);
+      }
+    }
+  }
+}

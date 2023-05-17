@@ -1,0 +1,87 @@
+#content .rtcl-listings-sc-wrapper {
+  padding: 60px 0 60px 60px;
+  background-color: #f4f6f5;
+}
+
+#content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+#content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-notices-wrapper {
+  margin: 0;
+}
+
+#content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-grid-view {
+  grid-column-gap: 20px;
+  grid-row-gap: 0;
+}
+
+#content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions .rtcl-result-count {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions .rtcl-view-switcher .rtcl-view-trigger:last-child {
+  margin-left: 3px;
+}
+
+#content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions .rtcl-view-switcher > a {
+  color: #989898;
+  border-color: #989898;
+}
+
+#content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions .rtcl-view-switcher > .rtcl-view-trigger.active {
+  color: var(--rtcl-primary-color);
+  border-color: var(--rtcl-primary-color);
+  color: $white;
+}
+
+#content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions .rtcl-view-switcher > a i {
+  color: inherit;
+}
+
+#content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-pagination {
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 1199px) {
+  #content .rtcl-listings-sc-wrapper {
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 60px;
+  }
+  #content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper {
+    flex-basis: 100%;
+    max-width: initial;
+    order: 2;
+  }
+  #content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  #content .rtcl-listings-sc-wrapper .rtcl-listings-wrapper .rtcl-listings-actions .rtcl-result-count {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+  #content .rtcl-listings-sc-wrapper.has-map .rtcl-search-map {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  #content .rtcl-listings-sc-wrapper.has-map .rtcl-search-map .rtcl-map-view {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #content .rtcl-listings-sc-wrapper {
+    padding: 30px;
+  }
+}
+
+#content .rtcl-listings-sc-wrapper .rtcl-grid-view .rtcl-listing-item {
+  border: 1px solid rgba(0,0,0,0.05);
+}

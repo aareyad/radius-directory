@@ -1,0 +1,43 @@
+.rtcl {
+  .rtcl-stores {
+    .rtcl-store-item {
+      .rtcl-store-link {
+        display: block;
+        background: $white;
+        padding: 25px;
+        border-radius: $borderRadius8;
+
+        div.item-content {
+          padding: 0;
+          background-color: transparent;
+        }
+
+        .store-thumb {
+          .rtcl-store-thumbnail {
+            border-radius: $borderRadius4;
+            margin-bottom: 10px;
+          }
+        }
+
+        .rtcl-store-title {
+          font-size: 18px;
+          transition: all 0.3s ease-in-out;
+        }
+
+        &:hover {
+          .rtcl-store-title {
+            color: $primaryColor;
+          }
+        }
+      }
+
+      &:hover {
+        div.item-content {
+          background-color: transparent;
+          box-shadow: none;
+          color: $black;
+        }
+      }
+    }
+  }
+}
