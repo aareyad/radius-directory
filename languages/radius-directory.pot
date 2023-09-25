@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: RadiusTheme <info@radiustheme.com>\n"
-"POT-Creation-Date: 2023-05-16 05:53+0000\n"
+"POT-Creation-Date: 2023-09-25 04:40+0000\n"
 "Project-Id-Version: undefined\n"
 "Report-Msgid-Bugs-To: techlabpro15@gmail.com\n"
 "X-Poedit-Basepath: ..\n"
@@ -737,19 +737,19 @@ msgstr ""
 msgid "Error Page"
 msgstr ""
 
-#: lib/updater/theme-updater-admin.php:474
+#: lib/updater/theme-updater-admin.php:475
 msgid "activate license"
 msgstr ""
 
-#: lib/updater/theme-updater-admin.php:477
+#: lib/updater/theme-updater-admin.php:478
 msgid "Please, %s to install, update bundle plugins and import demo contents."
 msgstr ""
 
-#: lib/updater/theme-updater-admin.php:492
+#: lib/updater/theme-updater-admin.php:493
 msgid "Please activate your theme using license code, to install demo data."
 msgstr ""
 
-#: lib/updater/theme-updater-admin.php:504, lib/updater/theme-updater-admin.php:522
+#: lib/updater/theme-updater-admin.php:505, lib/updater/theme-updater-admin.php:523
 msgid "Please activate your theme using license code, to use this plugin."
 msgstr ""
 
