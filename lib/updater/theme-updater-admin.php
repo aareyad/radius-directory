@@ -472,7 +472,7 @@ class EDD_Theme_Updater_Admin {
 	function show_license_notice() {
 	    $license_status = $this->get_license_status();
 	    if ( $license_status !== 'valid' ) {
-	        $link = '<a href="'.esc_url( admin_url('themes.php?page=_radius-directory-license') ).'">'.esc_html__('activate license', 'radius-directory').'</a>';
+	        $link = '<a href="'.esc_url( admin_url('themes.php?page=_radius_directory-license') ).'">'.esc_html__('activate license', 'radius-directory').'</a>';
 	        ?>
 	        <div class="notice notice-warning">
 	            <p><strong><?php printf(esc_html__('Please, %s to install, update bundle plugins and import demo contents.', 'radius-directory'), $link); ?></strong></p>
