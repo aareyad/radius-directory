@@ -62,6 +62,7 @@ class EDD_Theme_Updater_Admin {
 		add_action( 'admin_init', [ $this, 'license_action' ] );
 		add_action( 'admin_menu', [ $this, 'license_menu' ] );
 		add_action( 'update_option_' . $this->theme_slug . '_license_key', [ $this, 'activate_license' ], 10, 2 );
+		add_action( 'add_option_' . $this->theme_slug . '_license_key', [ $this, 'activate_license' ], 10, 2 );
 		add_filter( 'http_request_args', [ $this, 'disable_wporg_request' ], 5, 2 );
 		add_action( 'admin_footer', [ $this, 'restriction_script' ] );
 		add_action( 'admin_notices', [ $this, 'show_license_notice'] );
