@@ -20,3 +20,18 @@
     }
   }
 }
+
+body.rtcl-account {
+  &:not(.page-template-rtcl-canvas_template) {
+    background-color: #f6f6f6;
+
+    .site-content-block {
+      .main-content {
+        padding: 0;
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+  }
+}

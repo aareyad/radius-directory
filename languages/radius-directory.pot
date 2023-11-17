@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: RadiusTheme <info@radiustheme.com>\n"
-"POT-Creation-Date: 2023-09-25 05:27+0000\n"
+"POT-Creation-Date: 2023-11-17 05:12+0000\n"
 "Project-Id-Version: undefined\n"
 "Report-Msgid-Bugs-To: techlabpro15@gmail.com\n"
 "X-Poedit-Basepath: ..\n"
@@ -130,15 +130,15 @@ msgstr ""
 msgid "Dependency Selection"
 msgstr ""
 
-#: inc/Listing_Functions.php:128, inc/Listing_Functions.php:166
+#: inc/Listing_Functions.php:129, inc/Listing_Functions.php:167
 msgid "Add to favourite"
 msgstr ""
 
-#: inc/Listing_Functions.php:134, inc/Listing_Functions.php:172
+#: inc/Listing_Functions.php:135, inc/Listing_Functions.php:173
 msgid "Quick view"
 msgstr ""
 
-#: inc/Listing_Functions.php:150, inc/Listing_Functions.php:188
+#: inc/Listing_Functions.php:151, inc/Listing_Functions.php:189
 msgid "Add to compare list"
 msgstr ""
 
