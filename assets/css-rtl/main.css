@@ -4612,6 +4612,25 @@ body.rtcl-account:not(.page-template-rtcl-canvas_template) .site-content-block .
 	border: 1px solid var(--rtcl-secondary-color);
 }
 
+/*--------- Form builder compatibility ---------*/
+#rtcl-form-builder-container {
+	background: transparent;
+	padding: 0;
+	box-shadow: none;
+}
+
+#rtcl-form-builder-container .rtcl-form-list {
+	padding-top: 0;
+}
+
+#rtcl-form-builder-container .rtcl-fb-sections .rtcl-fb-section:first-child .section-header {
+	padding-top: 0;
+}
+
+#rtcl-form-builder-container .rtcl-fb-sections .rtcl-fb-section .section-header {
+	margin-bottom: 25px;
+}
+
 #content .rtcl-listings-sc-wrapper {
 	padding: 60px 60px 60px 0;
 	background-color: #f4f6f5;
