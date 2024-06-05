@@ -22,7 +22,7 @@ class Listing_Functions {
 
 	public function __construct() {
 		add_action( 'after_setup_theme', [ $this, 'theme_support' ] );
-		add_action( 'init', [ $this, 'rtcl_action_hook' ] );
+		add_action( 'wp', [ $this, 'rtcl_action_hook' ], 99 );
 		add_action( 'init', [ $this, 'rtcl_filter_hook' ] );
 	}
 
@@ -39,8 +39,8 @@ class Listing_Functions {
 	}
 
 	public function rtcl_action_hook() {
-		if ( isset( $_GET['view'] ) && in_array( $_GET['view'], [ 'grid', 'list' ], true ) ) {
-			$view = esc_attr( $_GET['view'] );
+		if ( isset( $_GET['view'] ) && in_array( $_GET['view'], [ 'grid', 'list' ] ) ) {
+			$view = sanitize_text_field( $_GET['view'] );
 		} else {
 			$view = Functions::get_option_item( 'rtcl_general_settings', 'default_view', 'list' );
 		}
@@ -69,8 +69,7 @@ class Listing_Functions {
 			remove_action( 'rtcl_listing_loop_item', [ TemplateHooks::class, 'listing_price' ], 80 );
 			add_action( 'rtcl_listing_loop_item', [ __CLASS__, 'loop_item_action_price' ], 80 );
 			add_action( 'rtcl_listing_loop_item', [ TemplateHooks::class, 'loop_item_excerpt' ], 45 );
-		}
-		if ( 'grid' === $view ) {
+		} else if ( 'grid' === $view ) {
 			add_action( 'rtcl_after_listing_thumbnail', [ __CLASS__, 'loop_item_action_button' ], 20 );
 		}
 		// Listing seller contact
@@ -78,14 +77,14 @@ class Listing_Functions {
 		remove_action( 'rtcl_listing_seller_information', [ TemplateHooks::class, 'seller_website' ], 50 );
 		add_action( 'rtcl_before_user_info', [ __CLASS__, 'seller_email' ], 10 );
 		add_action( 'rtcl_before_user_info', [ TemplateHooks::class, 'seller_website' ], 30 );
-        if ( class_exists('RtclPro') ) {
-	        remove_action( 'rtcl_listing_seller_information', [ ProHooks::class, 'add_chat_link' ], 40 );
-	        add_action( 'rtcl_before_user_info', [ ProHooks::class, 'add_chat_link' ], 20 );
-        }
+		if ( class_exists( 'RtclPro' ) ) {
+			remove_action( 'rtcl_listing_seller_information', [ ProHooks::class, 'add_chat_link' ], 40 );
+			add_action( 'rtcl_before_user_info', [ ProHooks::class, 'add_chat_link' ], 20 );
+		}
 	}
 
 	public function rtcl_filter_hook() {
-        add_filter( 'rtcl_listings_shortcode_show_top_listings', '__return_false' );
+		add_filter( 'rtcl_listings_shortcode_show_top_listings', '__return_false' );
 		add_filter( 'rtcl_bootstrap_dequeue', '__return_false' );
 		add_filter( 'rtcl_listing_the_excerpt', function ( $excerpt ) {
 			return wp_trim_words( $excerpt, 12 );
@@ -131,13 +130,13 @@ class Listing_Functions {
 						<?php echo Functions::get_favourites_link( $listing->get_id() ) ?>
                     </div>
 				<?php } ?>
-				<?php if ( class_exists('RtclPro') && Fns::is_enable_quick_view() ) { ?>
+				<?php if ( class_exists( 'RtclPro' ) && Fns::is_enable_quick_view() ) { ?>
                     <div class="rtcl-quick-view rtcl-btn" data-tooltip="<?php esc_html_e( "Quick view", "radius-directory" ) ?>"
                          data-listing_id="<?php echo absint( $listing->get_id() ) ?>">
                         <i class="rtcl-icon rtcl-icon-zoom-in"></i>
                     </div>
 				<?php } ?>
-				<?php if ( class_exists('RtclPro') && Fns::is_enable_compare() ) {
+				<?php if ( class_exists( 'RtclPro' ) && Fns::is_enable_compare() ) {
 					if ( empty( rtcl()->session ) ) {
 						rtcl()->initialize_session();
 					}
@@ -169,13 +168,13 @@ class Listing_Functions {
 					<?php echo Functions::get_favourites_link( $listing->get_id() ) ?>
                 </div>
 			<?php } ?>
-			<?php if ( class_exists('RtclPro') && Fns::is_enable_quick_view() ) { ?>
+			<?php if ( class_exists( 'RtclPro' ) && Fns::is_enable_quick_view() ) { ?>
                 <div class="rtcl-quick-view rtcl-btn" data-tooltip="<?php esc_html_e( "Quick view", "radius-directory" ) ?>"
                      data-listing_id="<?php echo absint( $listing->get_id() ) ?>">
                     <i class="rtcl-icon rtcl-icon-zoom-in"></i>
                 </div>
 			<?php } ?>
-			<?php if ( class_exists('RtclPro') && Fns::is_enable_compare() ) {
+			<?php if ( class_exists( 'RtclPro' ) && Fns::is_enable_compare() ) {
 				if ( empty( rtcl()->session ) ) {
 					rtcl()->initialize_session();
 				}
