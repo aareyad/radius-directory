@@ -1,6 +1,6 @@
 .rtcl {
   .rtcl-grid-view {
-    grid-row-gap: 0;
+    grid-row-gap: 20px;
 
     &.columns-3 {
       @include large-screen() {
@@ -74,6 +74,10 @@
             }
           }
         }
+      }
+
+      &.is-featured {
+        border: none;
       }
     }
   }

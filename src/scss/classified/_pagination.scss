@@ -1,14 +1,18 @@
 .rtcl {
+  .rtcl-ajax-pagination-wrap,
   nav.rtcl-pagination {
     margin-top: 40px;
+    padding: 0;
 
     ul {
+      grid-gap: 0;
 
       li {
         margin-right: 10px;
         border: none;
         border-radius: 0;
 
+        & > span,
         .page-numbers {
           width: 45px;
           height: 45px;

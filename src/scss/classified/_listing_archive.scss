@@ -50,8 +50,9 @@
   }
 
   .rtcl-listings {
+    margin-bottom: 0;
+
     .rtcl-listing-item {
-      margin-bottom: 20px;
 
       .listing-thumb {
         .listing-thumb-inner {
@@ -75,7 +76,7 @@
               padding: 7px 10px;
               border-radius: 4px;
               background: #ffffff;
-              box-shadow: 0 2px 0 0 rgba(212,222,217,0);
+              box-shadow: 0 2px 0 0 rgba(212, 222, 217, 0);
 
               &:hover {
                 background-color: var(--rtcl-primary-color);
@@ -174,7 +175,6 @@
 
       &.is-featured {
         background-color: $white;
-        margin-bottom: 20px;
       }
 
       &.as-top {
