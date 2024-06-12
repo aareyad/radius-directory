@@ -355,3 +355,55 @@
     }
   }
 }
+
+
+.listing-sidebar {
+  .rtcl-add-to-cart-form-wrapper {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e7e7e7;
+    box-shadow: 0 0 20px #f0f0f0;
+    margin-bottom: 25px;
+
+    form {
+      margin: 0 !important;
+
+      .btn {
+        background-color: var(--rtcl-primary-color);
+
+        &:hover {
+          background-color: var(--rtcl-secondary-color);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .rtcl-single-listing-details {
+    .rtcl-add-to-cart-form-wrapper {
+      display: none;
+    }
+  }
+}
+
+
+.rtcl-single-listing-details {
+  .rtcl-add-to-cart-form-wrapper {
+    max-width: 250px;
+    margin-top: 20px;
+
+    form {
+      margin: 0 !important;
+
+      .btn {
+        background-color: var(--rtcl-primary-color);
+
+        &:hover {
+          background-color: var(--rtcl-secondary-color);
+        }
+      }
+    }
+  }
+}

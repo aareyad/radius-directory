@@ -183,6 +183,25 @@
       }
     }
 
+    .rtcl-add-to-cart-form-wrapper {
+      input[type='number'] {
+        border: 1px solid #e7e7e7;
+        outline: none;
+        box-shadow: none;
+        padding: 5px 10px;
+      }
+
+      input[type='submit'] {
+        padding: 5px 12px;
+        line-height: 1.4;
+        border: none;
+        background-color: var(--rtcl-primary-color);
+
+        &:hover {
+          background-color: var(--rtcl-secondary-color);
+        }
+      }
+    }
   }
 }
 
