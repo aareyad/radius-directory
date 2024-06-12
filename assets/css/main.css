@@ -4814,6 +4814,40 @@ body.rtcl-account:not(.page-template-rtcl-canvas_template) .site-content-block .
 	border: 1px solid var(--rtcl-secondary-color);
 }
 
+.rtcl-form-page .rtcl-post-marketplace .rtcl-marketplace-checkbox label {
+	margin-bottom: 0 !important;
+	font-weight: 400 !important;
+	color: #797f89 !important;
+}
+
+.rtcl-form-page .rtcl-post-marketplace .rtcl-marketplace-downloadable-table th {
+	color: #111111;
+}
+
+.rtcl-form-page .rtcl-post-marketplace .rtcl-marketplace-downloadable-table th,
+.rtcl-form-page .rtcl-post-marketplace .rtcl-marketplace-downloadable-table td {
+	padding: 10px;
+}
+
+.rtcl-form-page .rtcl-post-marketplace .rtcl-marketplace-downloadable-table .input_text {
+	outline: none;
+	box-shadow: none;
+	height: 34px;
+}
+
+.rtcl-form-page .rtcl-post-marketplace .rtcl-marketplace-downloadable-table .button {
+	padding: 8px 15px;
+	background-color: var(--rtcl-primary-color);
+	line-height: 1.4;
+	border: none;
+	color: #ffffff;
+}
+
+.rtcl-form-page .rtcl-post-marketplace .rtcl-marketplace-downloadable-table .button:hover {
+	background-color: var(--rtcl-secondary-color);
+	color: #ffffff;
+}
+
 /*--------- Form builder compatibility ---------*/
 #rtcl-form-builder-container {
 	background: transparent;

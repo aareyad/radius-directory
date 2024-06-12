@@ -14,7 +14,7 @@ function radius_directory_load_textdomain() {
 	load_theme_textdomain( 'radius-directory', get_template_directory() . '/languages' );
 }
 
-define( 'RADIUS_DIRECTORY_VERSION', '1.2.1' );
+define( 'RADIUS_DIRECTORY_VERSION', '1.2.2' );
 
 if ( ! defined('RT_DEBUG') ) {
     require_once 'lib/updater/theme-updater.php';
