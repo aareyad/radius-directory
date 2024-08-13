@@ -76,7 +76,13 @@ do_action( 'rtcl_before_single_listing' );
 						<?php endif; ?>
                         <!--  Inner Sidebar -->
 						<?php do_action( 'rtcl_single_listing_inner_sidebar', $listing ); ?>
-						<?php $listing->the_custom_fields(); ?>
+						<?php
+						if ( Functions::isEnableFb() ) {
+							$listing->custom_fields();
+						} else {
+							$listing->the_custom_fields();
+						}
+						?>
                         <div class="rtcl-single-actions">
 							<?php $listing->the_actions(); ?>
                         </div>
