@@ -12,6 +12,7 @@
 use Rtcl\Helpers\Functions;
 use Rtcl\Models\Form\Form;
 use Rtcl\Services\FormBuilder\FBField;
+use Rtcl\Services\FormBuilder\FBHelper;
 
 if ( ! is_a( $form, Form::class ) ) {
 	return;
@@ -19,91 +20,101 @@ if ( ! is_a( $form, Form::class ) ) {
 
 $fields = $form->getFieldAsGroup( FBField::CUSTOM );
 if ( count( $fields ) ) :
+	$fields = FBHelper::reOrderCustomField( $fields );
 	ob_start();
-	foreach ( $fields as $fieldName => $field ) {
+	foreach ( $fields as $index => $field ) {
 		$field = new FBField( $field );
+		if ( ! $field->isSingleViewAble() ) {
+			continue;
+		}
 		$value = $field->getFormattedCustomFieldValue( $listing_id );
-
+		if ( empty( $value ) ) {
+			continue;
+		}
+		$icon = $field->getIconData();
 		if ( ! empty( $value ) ) { ?>
             <li class="list-group-item rtcl-cf-<?php echo esc_attr( $field->getElement() ) ?>">
 				<?php if ( $field->getElement() === 'url' ) {
 					$nofollow = ! empty( $field->getNofollow() ) ? ' rel="nofollow"' : ''; ?>
                     <a href="<?php echo esc_url( $value ); ?>"
                        target="<?php echo esc_attr( $field->getTarget() ) ?>"<?php echo esc_html( $nofollow ) ?>><?php echo esc_html( $field->getLabel() ) ?></a>
-				<?php } else { ?>
-                    <span class="cfp-label"><span><?php echo esc_html( $field->getLabel() ) ?></span>:</span>
+				<?php } else {
+					if ( ( ! empty( $icon['type'] ) && 'class' === $icon['type'] && ! empty( $icon['class'] ) ) || ! empty( $field->getLabel() ) ) {
+						echo '<span class="cfp-label">';
+						if ( ! empty( $icon['type'] ) && 'class' === $icon['type'] && ! empty( $icon['class'] ) ) {
+							?>
+                            <i class="<?php echo esc_attr( $icon['class'] ); ?>"></i>&nbsp;
+							<?php
+						}
+						if ( ! empty( $field->getLabel() ) ) {
+							?>
+                            <span><?php echo esc_html( $field->getLabel() ) ?></span>:
+							<?php
+						}
+						echo '</span>';
+					}
+					?>
                     <span class="cfp-value">
-						<?php if ( $field->getElement() === 'color_picker' ) { ?>
-                            <span class="cfp-color"
-                                  style="width:20px; height:20px; display:inline-block;background-color: <?php echo esc_attr( $value ) ?>;"></span>
-						<?php } elseif ( in_array( $field->getElement(), [ 'select', 'radio', 'checkbox' ] ) ) {
-							if ( $field->getElement() === 'checkbox' ) {
-								$_value = [];
-								foreach ( $value as $item ) {
-									$_value[] = ! empty( $item['label'] ) ? $item['label'] : '';
-								}
-								$value = ! empty( $_value ) ? implode( ', ', $_value ) : '';
-							} else {
-								$value = is_array( $value ) && ! empty( $value['label'] ) ? $value['label'] : '';
-							}
-							Functions::print_html( $value );
-						} elseif ( $field->getElement() === 'html' ) {
-							echo $value;
-						} elseif ( $field->getElement() === 'file' ) {
-							if ( ! empty( $value ) && is_array( $value ) ) {
-								foreach ( $value as $file ) {
-									if ( empty( $file['url'] ) || empty( $file['name'] ) ) {
-										continue;
-									}
-									$ext = pathinfo( $file['url'], PATHINFO_EXTENSION );
-									if ( $ext == 'pdf' ) {
-										$iconClass = 'rtcl-icon-file-pdf';
-									} elseif ( in_array( $ext, [ 'avi', 'divx', 'flv', 'mov', 'ogv', 'mkv', 'mp4', 'm4v', 'divx', 'mpg', 'mpeg', 'mpe' ] ) ) {
-										$iconClass = 'rtcl-icon-music';
-									} elseif ( in_array( $ext, [ 'mp3', 'wav', 'ogg', 'oga', 'wma', 'mka', 'm4a', 'ra', 'mid', 'midi' ] ) ) {
-										$iconClass = 'rtcl-icon-music';
-									} elseif ( in_array( $ext, [ 'zip', 'gz', 'gzip', 'rar', '7z' ] ) ) {
-										$iconClass = 'rtcl-icon-file-archive';
-									} elseif ( in_array( $ext, [ 'jpg', 'jpeg', 'gif', 'png', 'bmp' ] ) ) {
-										$iconClass = 'rtcl-icon-file-archive';
-									} elseif ( in_array( $ext, [
-										'doc',
-										'ppt',
-										'pps',
-										'xls',
-										'mdb',
-										'docx',
-										'xlsx',
-										'pptx',
-										'odt',
-										'odp',
-										'ods',
-										'odg',
-										'odc',
-										'odb',
-										'odf',
-										'rtf',
-										'txt',
-										'csv'
-									] )
-									) {
-										$iconClass = 'rtcl-icon-doc';
-									} else {
-										$iconClass = 'rtcl-icon-attach';
-									}
-
+                        <?php
+                        if ( 'repeater' === $field->getElement() ) {
+	                        $repeaterFields = $field->getData( 'fields', [] );
+	                        if ( ! empty( $repeaterFields ) && is_array( $value ) ) {
+		                        ?>
+                                <div class="rtcl-cfp-repeater-items">
+								<?php
+								foreach ( $value as $rValueIndex => $rValues ) {
 									?>
-                                    <div class="rtcl-file-item">
-										<i class="rtcl-icon <?php echo esc_attr( $iconClass ); ?>"></i>
-										<a href="<?php echo esc_url( $file['url'] ) ?>"
-                                           target="_blank"><?php echo esc_html( $file['name'] ) ?></a>
+                                    <div class="rtcl-cfp-repeater-item">
+										<?php
+										foreach ( $repeaterFields as $repeaterField ) {
+											$rField = new FBField( $repeaterField );
+											$rValue = 'file' === $rField->getElement() ? ( ! empty( $rValues[ $rField->getName() ] )
+											                                               && is_array( $rValues[ $rField->getName() ] )
+												? FBHelper::getFieldAttachmentFiles( $listing_id, $rField->getField(), $rValues[ $rField->getName() ], true )
+												: [] ) : ( $rValues[ $rField->getName() ] ?? '' );
+											?>
+                                            <div class="rtcl-cfp-repeater-field">
+												<?php
+												$rIcon = $rField->getIconData();
+												if ( ( ! empty( $rIcon['type'] ) && 'class' === $rIcon['type'] && ! empty( $rIcon['class'] ) )
+												     || ! empty( $rField->getLabel() )
+												) {
+													?>
+                                                    <div class="rtcl-cfp-label-wrap">
+														<?php
+														if ( ! empty( $rIcon['type'] ) && 'class' === $rIcon['type'] && ! empty( $rIcon['class'] ) ) {
+															?>
+                                                            <div class="rtcl-field-icon">
+                                                                <i class="<?php echo esc_attr( $rIcon['class'] ); ?>"></i>
+															</div>
+															<?php
+														}
+														if ( ! empty( $rField->getLabel() ) ) {
+															?>
+                                                            <div class='cfp-label'><?php echo esc_html( $rField->getLabel() ); ?>:</div>
+															<?php
+														}
+														?>
+													</div>
+												<?php } ?>
+												<div class="cfp-value">
+													<?php Functions::print_html( FBHelper::getFormattedFieldHtml( $rValue, $rField ) ); ?>
+												</div>
+											</div>
+											<?php
+										}
+										?>
 									</div>
 									<?php
 								}
-							}
-						} else {
-							Functions::print_html( $value );
-						} ?>
+								?>
+							</div>
+		                        <?php
+	                        }
+                        } else {
+	                        Functions::print_html( FBHelper::getFormattedFieldHtml( $value, $field ) );
+                        }
+                        ?>
 					</span>
 				<?php } ?>
             </li>
@@ -115,11 +126,11 @@ if ( count( $fields ) ) :
 			?>
             <div class="rtcl-single-custom-fields">
                 <div class="rtcl-widget-title2">
-                    <h3><?php esc_html_e( 'Overview', 'radius-directory' ); ?></h3>
+                    <h3><?php esc_html_e( 'Overview', 'cl-classified' ); ?></h3>
                 </div>
-                <ul class="list-group list-group-flush custom-field-properties">
-					<?php Functions::print_html( $fieldData ); ?>
-                </ul>
+				<?php printf( '<ul class="list-group list-group-flush custom-field-properties">%s</ul>',
+					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					$fieldData ); ?>
             </div>
 			<?php
 		} else {
