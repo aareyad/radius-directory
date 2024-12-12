@@ -17,7 +17,7 @@ function radius_directory_load_textdomain() {
 define( 'RADIUS_DIRECTORY_VERSION', '1.3.0' );
 
 if ( ! defined('RT_DEBUG') ) {
-    require_once 'lib/updater/theme-updater.php';
+    //require_once 'lib/updater/theme-updater.php';
 }
 require_once 'lib/class-tgm-plugin-activation.php';
 require_once 'inc/init.php';

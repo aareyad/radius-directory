@@ -198,14 +198,16 @@ class Listing_Functions {
 		global $listing;
 		if ( $listing->has_category() && $listing->can_show_category() ) {
 			$category = $listing->get_categories();
-			$category = end( $category );
-			?>
-            <div class="listing-category">
-                <a class="listing-categories" href="<?php echo esc_url( get_term_link( $category ) ); ?>">
-					<?php echo esc_html( $category->name ); ?>
-                </a>
-            </div>
-			<?php
+			if ( $category ) {
+				?>
+                <div class="listing-category">
+					<?php foreach ( $category as $cat ) { ?>
+                        <a class="listing-categories" href="<?php echo esc_url( get_term_link( $cat ) ); ?>">
+							<?php echo esc_html( $cat->name ); ?>
+                        </a>
+					<?php } ?>
+                </div>
+			<?php }
 		}
 	}
 
