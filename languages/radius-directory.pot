@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: RadiusTheme <info@radiustheme.com>\n"
-"POT-Creation-Date: 2024-10-31 10:38+0000\n"
+"POT-Creation-Date: 2024-12-19 05:38+0000\n"
 "Project-Id-Version: undefined\n"
 "Report-Msgid-Bugs-To: techlabpro15@gmail.com\n"
 "X-Poedit-Basepath: ..\n"
@@ -631,11 +631,11 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: classified-listing/listing/meta.php:31
+#: classified-listing/listing/meta.php:34
 msgid "by "
 msgstr ""
 
-#: classified-listing/listing/meta.php:71
+#: classified-listing/listing/meta.php:92
 msgid "%s view"
 msgid_plural "%s views"
 msgstr[0] ""
