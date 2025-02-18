@@ -1,4 +1,4 @@
-# Copyright (C) 2024 radius-directory
+# Copyright (C) 2025 radius-directory
 # This file is distributed under the same license as the radius-directory package.
 msgid ""
 msgstr ""
@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: RadiusTheme <info@radiustheme.com>\n"
-"POT-Creation-Date: 2024-12-19 05:38+0000\n"
+"POT-Creation-Date: 2025-02-18 06:16+0000\n"
 "Project-Id-Version: undefined\n"
 "Report-Msgid-Bugs-To: techlabpro15@gmail.com\n"
 "X-Poedit-Basepath: ..\n"
@@ -742,15 +742,7 @@ msgid "activate license"
 msgstr ""
 
 #: lib/updater/theme-updater-admin.php:478
-msgid "Please, %s to install, update bundle plugins and import demo contents."
-msgstr ""
-
-#: lib/updater/theme-updater-admin.php:493
-msgid "Please activate your theme using license code, to install demo data."
-msgstr ""
-
-#: lib/updater/theme-updater-admin.php:505, lib/updater/theme-updater-admin.php:523
-msgid "Please activate your theme using license code, to use this plugin."
+msgid "Please, %s to get update notice and automatic update."
 msgstr ""
 
 #: lib/updater/theme-updater.php:31
