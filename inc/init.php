@@ -14,7 +14,7 @@ use RadiusTheme\RadiusDirectory\Scripts;
 use RadiusTheme\RadiusDirectory\Options;
 use RadiusTheme\RadiusDirectory\Customizer\Init;
 
-require_once __DIR__ . './../vendor/autoload.php';
+require_once get_template_directory() . '/vendor/autoload.php';
 
 final class Includes {
 	private $suffix;
@@ -55,7 +55,7 @@ final class Includes {
 		if ( class_exists( 'WP_Customize_Control' ) ) {
 			Init::instance();
 		}
-		if (class_exists('Rtcl')) {
+		if ( class_exists( 'Rtcl' ) ) {
 			Listing_Functions::instance();
 		}
 	}

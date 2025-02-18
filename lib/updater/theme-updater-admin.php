@@ -18,6 +18,7 @@ class EDD_Theme_Updater_Admin {
 	protected $version = null;
 	protected $author = null;
 	protected $download_id = null;
+    protected $item_id = null;
 	protected $renew_url = null;
 	protected $strings = null;
 
@@ -64,7 +65,6 @@ class EDD_Theme_Updater_Admin {
 		add_action( 'update_option_' . $this->theme_slug . '_license_key', [ $this, 'activate_license' ], 10, 2 );
 		add_action( 'add_option_' . $this->theme_slug . '_license_key', [ $this, 'activate_license' ], 10, 2 );
 		add_filter( 'http_request_args', [ $this, 'disable_wporg_request' ], 5, 2 );
-		add_action( 'admin_footer', [ $this, 'restriction_script' ] );
 		add_action( 'admin_notices', [ $this, 'show_license_notice'] );
 	}
 
@@ -475,58 +475,10 @@ class EDD_Theme_Updater_Admin {
 	        $link = '<a href="'.esc_url( admin_url('themes.php?page=_radius_directory-license') ).'">'.esc_html__('activate license', 'radius-directory').'</a>';
 	        ?>
 	        <div class="notice notice-warning">
-	            <p><strong><?php printf(esc_html__('Please, %s to install, update bundle plugins and import demo contents.', 'radius-directory'), $link); ?></strong></p>
+	            <p><strong><?php printf(esc_html__('Please, %s to get update notice and automatic update.', 'radius-directory'), $link); ?></strong></p>
             </div>
 	        <?php
 	    }
-	}
-
-	function restriction_script() {
-
-		$license_status = $this->get_license_status();
-
-		if ( wp_script_is( 'jquery', 'done' ) && $license_status !== 'valid' ) {
-            if ( isset( $_GET['page'] ) && $_GET['page'] == 'fw-backups-demo-content' ) { ?>
-                <script type="text/javascript">
-                    jQuery("#fw-ext-backups-demo-list .theme-actions a").on("click", function(e) {
-                        e.preventDefault();
-                        alert('<?php esc_html_e('Please activate your theme using license code, to install demo data.', 'radius-directory'); ?>');
-                        return false;
-                    });
-                </script>
-            <?php
-            }
-
-            if ( isset( $_GET['page'] ) && $_GET['page'] == 'radius_directory-install-plugins' ) { ?>
-                <script type="text/javascript">
-                    jQuery(".row-actions a").on("click", function(e) {
-                        if ( jQuery(this).closest('td').next().has('span').length > 0 ) { //find pre packaged
-                            e.preventDefault();
-                            alert('<?php esc_html_e('Please activate your theme using license code, to use this plugin.', 'radius-directory'); ?>');
-                            return false;
-                        }
-                    });
-
-                    jQuery(".check-column input").on("change", function(e) {
-
-                        if ( !jQuery(e.target).is(':checked') ) return;
-
-                        if ( jQuery(this).parent().hasClass('column-cb') ) { // all checked or not
-                            jQuery('table.wp-list-table > tbody  > tr').each(function(index, tr) {
-                                if ( jQuery(tr).find('.column-source').has('span').length > 0 ) {
-                                    jQuery(tr).find('.check-column input').prop('checked', false);
-                                }
-                            });
-                        } else {
-                            if ( jQuery(this).closest('th').next().next().has('span').length > 0 ) { // find pre packaged
-                                jQuery(this).prop('checked', false);
-                                alert('<?php esc_html_e('Please activate your theme using license code, to use this plugin.', 'radius-directory'); ?>');
-                            }
-                        }
-                    });
-                </script>
-            <?php }
-		}
 	}
 
 }

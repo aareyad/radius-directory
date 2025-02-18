@@ -34,14 +34,14 @@ class TGM_Config {
 				'slug'     => 'rt-framework',
 				'source'   => 'rt-framework.zip',
 				'required' => true,
-				'version'  => '2.8'
+				'version'  => '3.0'
 			],
 			[
 				'name'     => 'RT Demo Importer',
 				'slug'     => 'rt-demo-importer',
 				'source'   => 'rt-demo-importer.zip',
 				'required' => false,
-				'version'  => '6.0.1'
+				'version'  => '6.0.2'
 			],
 
 			// Repository
