@@ -89,6 +89,13 @@ class Listing_Functions {
 		add_filter( 'rtcl_listing_the_excerpt', function ( $excerpt ) {
 			return wp_trim_words( $excerpt, 12 );
 		} );
+		add_filter( 'radius_directory_sidebar_class', function ( $class ) {
+			if ( \RtclStore\Helpers\Functions::is_store() ) {
+				return '';
+			}
+
+			return $class;
+		} );
 		// Override Related Listing Item Number
 		add_filter( 'rtcl_related_slider_options', function ( $slider_options ) {
 			$slider_options = [
@@ -217,7 +224,7 @@ class Listing_Functions {
 		) {
 			?>
             <div class="rtcl-listing-user-info contact-form">
-                <div class='rtcl-do-email list-group-item'>
+                <div class='rtcl-do-email rtcl-list-group-item'>
                     <div class='media'>
                         <span class='rtcl-icon rtcl-icon-mail mr-2'></span>
                         <div class='media-body'>

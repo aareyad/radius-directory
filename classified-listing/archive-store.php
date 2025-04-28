@@ -4,6 +4,7 @@
  * @version 1.2.31
  */
 
+use RadiusTheme\RadiusDirectory\Helper;
 use RadiusTheme\RadiusDirectory\Options;
 use Rtcl\Helpers\Functions as RtclFunctions;
 use RtclStore\Helpers\Functions as StoreFunctions;
@@ -11,6 +12,8 @@ use RtclStore\Helpers\Functions as StoreFunctions;
 defined( 'ABSPATH' ) || exit;
 
 get_header( 'store' );
+
+do_action( 'rtcl_before_content_wrapper' );
 
 /**
  * Hook: rtcl_before_main_content.
@@ -80,5 +83,16 @@ if ( rtcl()->wp_query()->have_posts() ) {
  */
 do_action( 'rtcl_after_main_content' );
 
+if ( Helper::has_sidebar() ) {
+	/**
+	 * Hook: rtcl_sidebar.
+	 *
+	 * @hooked rtcl_get_sidebar - 10
+	 */
+
+	do_action( 'rtcl_store_sidebar' );
+}
+
+do_action( 'rtcl_after_content_wrapper' );
 
 get_footer( 'store' );

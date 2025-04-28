@@ -19,15 +19,15 @@ if ( ! $can_add_favourites && ! $can_report_abuse && ! $social ) {
 	return;
 }
 ?>
-    <ul class='list-group list-group-flush rtcl-single-listing-action'>
+    <ul class='rtcl-list-group list-group-flush rtcl-single-listing-action'>
 		<?php if ( $can_add_favourites ): ?>
-            <li class="list-group-item" id="rtcl-favourites" data-bs-toggle="tooltip" data-bs-placement="top"
+            <li class="rtcl-list-group-item" id="rtcl-favourites" data-bs-toggle="tooltip" data-bs-placement="top"
                 data-bs-title="<?php echo esc_html( Text::add_to_favourite() ); ?>">
 				<?php echo Functions::get_favourites_link( $listing_id ); ?>
             </li>
 		<?php endif; ?>
 		<?php if ( $can_report_abuse ): ?>
-            <li class="list-group-item" data-bs-toggle="tooltip" data-bs-placement="top"
+            <li class="rtcl-list-group-item" data-bs-toggle="tooltip" data-bs-placement="top"
                 data-bs-title="<?php echo esc_html( Text::report_abuse() ); ?>">
 				<?php if ( is_user_logged_in() ): ?>
                     <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#rtcl-report-abuse-modal">
@@ -41,7 +41,7 @@ if ( ! $can_add_favourites && ! $can_report_abuse && ! $social ) {
             </li>
 		<?php endif; ?>
 		<?php if ( function_exists( 'rtclClaimListing' ) && ClaimFunctions::claim_listing_enable() ): ?>
-            <li class='list-group-item' data-bs-toggle="tooltip" data-bs-placement="top"
+            <li class='rtcl-list-group-item' data-bs-toggle="tooltip" data-bs-placement="top"
                 data-bs-title="<?php echo esc_html( ClaimFunctions::get_claim_action_title() ); ?>">
 				<?php if ( is_user_logged_in() ): ?>
                     <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#rtcl-claim-listing-modal">
@@ -55,7 +55,7 @@ if ( ! $can_add_favourites && ! $can_report_abuse && ! $social ) {
             </li>
 		<?php endif; ?>
 		<?php if ( $social ): ?>
-            <li class="list-group-item social-share-list" data-bs-toggle="tooltip" data-bs-placement="top"
+            <li class="rtcl-list-group-item social-share-list" data-bs-toggle="tooltip" data-bs-placement="top"
                 data-bs-trigger="hover" data-bs-title="<?php esc_attr_e( 'Share', 'radius-directory' ); ?>">
                 <a class="listing-social-action" data-bs-toggle="modal" data-bs-target="#rtcl-social-share-modal">
                     <i class="fa-solid fa-share-nodes"></i>
@@ -102,11 +102,12 @@ if ( ! $can_add_favourites && ! $can_report_abuse && ! $social ) {
                                     aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label
-                                    for="rtcl-report-abuse-message"><?php esc_html_e( 'Your Complaint', 'radius-directory' ); ?>
-                                <span class="rtcl-star">*</span></label>
-                            <textarea name="message" class="form-control" id="rtcl-report-abuse-message" rows="3"
+                        <div class="rtcl-form-group">
+                            <label for="rtcl-report-abuse-message" class="rtcl-field-label">
+                                <?php esc_html_e( 'Your Complaint', 'radius-directory' );?>
+                                <span class="rtcl-star">*</span>
+                            </label>
+                            <textarea name="message" class="rtcl-form-control" id="rtcl-report-abuse-message" rows="3"
                                       placeholder="<?php esc_attr_e( 'Message... ', 'radius-directory' ); ?>"
                                       required></textarea>
                         </div>
@@ -115,7 +116,7 @@ if ( ! $can_add_favourites && ! $can_report_abuse && ! $social ) {
                     </div>
                     <div class="modal-footer">
                         <button type="submit"
-                                class="btn btn-primary"><?php esc_html_e( 'Submit', 'radius-directory' ); ?></button>
+                                class="rtcl-btn rtcl-btn-primary"><?php esc_html_e( 'Submit', 'radius-directory' ); ?></button>
                     </div>
                 </form>
             </div>

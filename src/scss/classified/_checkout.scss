@@ -11,7 +11,7 @@
 
       #rtcl-checkout-form {
         .rtcl-submit-btn-wrap {
-          .btn {
+          .rtcl-btn {
             @extend .rtin-button;
           }
         }
@@ -23,9 +23,13 @@
 .rtcl {
   .rtcl-payment-receipt {
     .action-btn {
-      .btn {
+      .rtcl-btn {
         @extend .rtin-button;
       }
     }
   }
+}
+
+.rtcl .rtcl-checkout-pricing-wrapper .rtcl-checkout-pricing .rtcl-membership-promotions .promotion-item > span:before {
+  background: #defff7;
 }

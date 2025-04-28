@@ -110,7 +110,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
 
-      .list-group-item {
+      .rtcl-list-group-item {
         color: $bodyColor;
         border: none;
         padding: 6px 0;
@@ -135,11 +135,12 @@
   .rtcl-single-listing-action {
     flex-direction: row;
     margin: 0;
+    padding: 0;
 
-    .list-group-item {
+    .rtcl-list-group-item {
       padding: 0;
       border: none;
-      margin-right: 15px;
+      margin-right: 10px;
 
       a {
         display: inline-block;
@@ -313,6 +314,7 @@
       padding: 0;
       margin: 0;
       border: none;
+      box-shadow: none;
 
       .rtclbh {
         border-color: $borderColor;

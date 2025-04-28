@@ -12,6 +12,8 @@ defined( 'ABSPATH' ) || exit;
 
 get_header( 'listing' );
 
+do_action( 'rtcl_before_content_wrapper' );
+
 /**
  * Hook: rtcl_before_main_content.
  *
@@ -115,5 +117,7 @@ if ( Helper::has_sidebar() ) {
 	 */
 	do_action( 'rtcl_sidebar' );
 }
+
+do_action( 'rtcl_after_content_wrapper' );
 
 get_footer( 'listing' );

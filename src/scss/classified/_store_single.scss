@@ -56,11 +56,6 @@
 
     .store-information {
       .store-info {
-        background-color: $white;
-        box-shadow: 0 0 20px #f0f0f0;
-        border-radius: $borderRadius8;
-        padding: 25px;
-
         @include small-screen() {
           margin-top: 30px;
         }

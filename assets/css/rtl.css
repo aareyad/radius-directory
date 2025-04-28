@@ -67,23 +67,23 @@ body {
 	margin-left: 4px;
 }
 
-.rtcl .rtcl-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-do-email .media-body .rtcl-do-email-link:before {
+.rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-do-email .media-body .rtcl-do-email-link:before {
 	position: absolute;
 }
 
-.rtcl .rtcl-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-do-email .media-body .rtcl-do-email-link span {
+.rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-do-email .media-body .rtcl-do-email-link span {
 	padding-right: 25px;
 }
 
-.rtcl .rtcl-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-contact-seller .rtcl-website-link:before,
-.rtcl .rtcl-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-website .rtcl-website-link:before {
+.rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-contact-seller .rtcl-website-link:before,
+.rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-website .rtcl-website-link:before {
 	position: absolute;
 	right: 16px;
 }
 
-.rtcl .rtcl-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-contact-seller .rtcl-chat-link,
-.rtcl .rtcl-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-contact-seller .rtcl-website-link,
-.rtcl .rtcl-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-website .rtcl-chat-link,
+.rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-contact-seller .rtcl-chat-link,
+.rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-contact-seller .rtcl-website-link,
+.rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-website .rtcl-chat-link,
 .rtcl .rtcl-wrapper .listing-sidebar .rtcl-listing-user-info .list-group .list-group-item.rtcl-website .rtcl-website-link {
 	padding-right: 40px;
 }

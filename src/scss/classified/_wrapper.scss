@@ -1,5 +1,5 @@
 .rtcl {
-  .rtcl-wrapper {
+  .rtcl-container {
     padding: 80px 12px;
     margin-top: 0;
     margin-bottom: 0;
@@ -19,11 +19,18 @@
     @media screen and (min-width: 1400px) {
       max-width: 1320px;
     }
+
+    .rtcl-content-wrapper {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 }
-.rtcl.post-type-archive-rtcl_listing .rtcl-wrapper > #primary {
+
+.rtcl.post-type-archive-rtcl_listing .rtcl-content-wrapper > #primary {
   order: initial;
 }
-.rtcl.post-type-archive-rtcl_listing.sidebar-in-left .rtcl-wrapper > #primary {
+
+.rtcl.post-type-archive-rtcl_listing.sidebar-in-left .rtcl-content-wrapper > #primary {
   order: 2;
 }

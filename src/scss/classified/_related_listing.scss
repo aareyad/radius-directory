@@ -1,5 +1,5 @@
 .rtcl {
-  .rtcl-related-listing {
+  .rtcl-related-listing-wrap {
     background: transparent;
     box-shadow: none;
     margin: 30px 0 0 !important;
@@ -10,8 +10,9 @@
       padding: 0;
       margin-bottom: 25px;
 
-      h2 {
-        font-size: 24px;
+      h3 {
+        font-size: 20px;
+        font-weight: 700;
         margin-bottom: 0;
       }
     }
