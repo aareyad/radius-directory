@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: RadiusTheme <info@radiustheme.com>\n"
-"POT-Creation-Date: 2025-02-18 06:16+0000\n"
+"POT-Creation-Date: 2025-05-09 08:43+0000\n"
 "Project-Id-Version: undefined\n"
 "Report-Msgid-Bugs-To: techlabpro15@gmail.com\n"
 "X-Poedit-Basepath: ..\n"
@@ -130,15 +130,15 @@ msgstr ""
 msgid "Dependency Selection"
 msgstr ""
 
-#: inc/Listing_Functions.php:128, inc/Listing_Functions.php:166
+#: inc/Listing_Functions.php:135, inc/Listing_Functions.php:173
 msgid "Add to favourite"
 msgstr ""
 
-#: inc/Listing_Functions.php:134, inc/Listing_Functions.php:172
+#: inc/Listing_Functions.php:141, inc/Listing_Functions.php:179
 msgid "Quick view"
 msgstr ""
 
-#: inc/Listing_Functions.php:150, inc/Listing_Functions.php:188
+#: inc/Listing_Functions.php:157, inc/Listing_Functions.php:195
 msgid "Add to compare list"
 msgstr ""
 
@@ -615,11 +615,11 @@ msgstr ""
 msgid "Your Complaint"
 msgstr ""
 
-#: classified-listing/listing/actions.php:110
+#: classified-listing/listing/actions.php:111
 msgid "Message... "
 msgstr ""
 
-#: classified-listing/listing/actions.php:118
+#: classified-listing/listing/actions.php:119
 msgid "Submit"
 msgstr ""
 
