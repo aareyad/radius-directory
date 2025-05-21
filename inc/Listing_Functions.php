@@ -90,7 +90,7 @@ class Listing_Functions {
 			return wp_trim_words( $excerpt, 12 );
 		} );
 		add_filter( 'radius_directory_sidebar_class', function ( $class ) {
-			if ( \RtclStore\Helpers\Functions::is_store() ) {
+			if ( class_exists( 'RtclStore' ) && \RtclStore\Helpers\Functions::is_store() ) {
 				return '';
 			}
 
