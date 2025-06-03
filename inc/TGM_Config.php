@@ -51,6 +51,11 @@ class TGM_Config {
 				'required' => true,
 			],
 			[
+				'name'     => 'Classified Listing Toolkits',
+				'slug'     => 'classified-listing-toolkits',
+				'required' => true,
+			],
+			[
 				'name'     => 'Elementor Page Builder',
 				'slug'     => 'elementor',
 				'required' => false,
