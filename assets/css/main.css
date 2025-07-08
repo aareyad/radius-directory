@@ -4335,12 +4335,14 @@ a.scrollToTop:focus {
 	border-top: 1px solid #e7e7e7;
 	margin-top: 20px;
 	padding-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
 }
 
 .rtcl-single-actions .rtcl-single-listing-action {
 	flex-direction: row;
 	margin: 0;
-	padding: 0;
 }
 
 .rtcl-single-actions .rtcl-single-listing-action .rtcl-list-group-item {
@@ -4392,6 +4394,34 @@ a.scrollToTop:focus {
 
 .rtcl-single-actions .rtcl-single-listing-action .rtcl-list-group-item.social-share-list button svg {
 	color: inherit;
+}
+
+.rtcl-single-actions .modal {
+	z-index: 99999;
+}
+
+.rtcl-single-actions .terms-name a {
+	display: inline-block;
+	background-color: #e7e7e7;
+	padding: 8px 10px;
+	margin-right: 8px;
+	line-height: 1;
+	border-radius: 3px;
+	color: inherit;
+}
+
+.rtcl-single-actions .terms-name a:hover {
+	background-color: var(--rtcl-primary-color);
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.rtcl-single-actions .terms-name span {
+	display: none;
+}
+
+.rtcl-single-actions .terms-name+.rtcl-single-listing-action {
+	margin-left: auto;
 }
 
 .rtcl-social-share-modal .modal-header button.close {

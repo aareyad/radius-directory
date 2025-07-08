@@ -84,6 +84,7 @@ do_action( 'rtcl_before_single_listing' );
 						}
 						?>
                         <div class="rtcl-single-actions">
+							<?php echo Functions::get_listing_tag( $listing->get_id() ); ?>
 							<?php $listing->the_actions(); ?>
                         </div>
                     </div>
