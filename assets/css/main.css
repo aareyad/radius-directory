@@ -4400,11 +4400,17 @@ a.scrollToTop:focus {
 	z-index: 99999;
 }
 
+.rtcl-single-actions .terms-name {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
 .rtcl-single-actions .terms-name a {
 	display: inline-block;
 	background-color: #e7e7e7;
 	padding: 8px 10px;
-	margin-right: 8px;
+	margin: 0;
 	line-height: 1;
 	border-radius: 3px;
 	color: inherit;
