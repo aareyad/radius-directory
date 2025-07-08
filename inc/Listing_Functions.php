@@ -42,7 +42,7 @@ class Listing_Functions {
 		if ( isset( $_GET['view'] ) && in_array( $_GET['view'], [ 'grid', 'list' ] ) ) {
 			$view = sanitize_text_field( $_GET['view'] );
 		} else {
-			$view = Functions::get_option_item( 'rtcl_general_settings', 'default_view', 'list' );
+			$view = Functions::get_option_item( 'rtcl_archive_listing_settings', 'default_view', 'list' );
 		}
 		// remove action
 		remove_action( 'rtcl_before_main_content', [ TemplateHooks::class, 'breadcrumb' ], 6 );
@@ -219,7 +219,7 @@ class Listing_Functions {
 	}
 
 	public static function seller_email( $listing ) {
-		if ( is_a( $listing, Listing::class ) && Functions::get_option_item( 'rtcl_moderation_settings', 'has_contact_form', false, 'checkbox' )
+		if ( is_a( $listing, Listing::class ) && Functions::get_option_item( 'rtcl_single_listing_settings', 'has_contact_form', false, 'checkbox' )
 		     && $email = get_post_meta( $listing->get_id(), 'email', true )
 		) {
 			?>

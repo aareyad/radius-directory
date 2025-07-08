@@ -34,8 +34,8 @@ if ( get_query_var( 'rtcl_category' ) && $category = get_term_by( 'slug', get_qu
 	$selected_category = $category;
 }
 
-$orderby = strtolower( Functions::get_option_item( 'rtcl_general_settings', 'taxonomy_orderby', 'name' ) );
-$order   = strtoupper( Functions::get_option_item( 'rtcl_general_settings', 'taxonomy_order', 'ASC' ) );
+$orderby = strtolower( Functions::get_option_item( 'rtcl_archive_listing_settings', 'taxonomy_orderby', 'name' ) );
+$order   = strtoupper( Functions::get_option_item( 'rtcl_archive_listing_settings', 'taxonomy_order', 'ASC' ) );
 
 $style = Options::$options['listing_search_style'];
 ?>

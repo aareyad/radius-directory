@@ -131,11 +131,13 @@
   border-top: 1px solid $borderColor;
   margin-top: 20px;
   padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 
   .rtcl-single-listing-action {
     flex-direction: row;
     margin: 0;
-    padding: 0;
 
     .rtcl-list-group-item {
       padding: 0;
@@ -188,6 +190,36 @@
           }
         }
       }
+    }
+  }
+
+  .modal {
+    z-index: 99999;
+  }
+
+  .terms-name {
+    a {
+      display: inline-block;
+      background-color: #e7e7e7;
+      padding: 8px 10px;
+      margin-right: 8px;
+      line-height: 1;
+      border-radius: 3px;
+      color: inherit;
+
+      &:hover {
+        background-color: var(--rtcl-primary-color);
+        color: #ffffff;
+        text-decoration: none;
+      }
+    }
+
+    span {
+      display: none;
+    }
+
+    & + .rtcl-single-listing-action {
+      margin-left: auto;
     }
   }
 }

@@ -20,7 +20,7 @@ if ( post_password_required() ) {
 
 	return;
 }
-$sidebar_position = Functions::get_option_item( 'rtcl_moderation_settings', 'detail_page_sidebar_position', 'right' );
+$sidebar_position = Functions::get_option_item( 'rtcl_single_listing_settings', 'detail_page_sidebar_position', 'right' );
 $sidebar_class    = [
 	'col-md-3',
 	'order-2'
@@ -84,6 +84,7 @@ do_action( 'rtcl_before_single_listing' );
 						}
 						?>
                         <div class="rtcl-single-actions">
+							<?php echo Functions::get_listing_tag( $listing->get_id() ); ?>
 							<?php $listing->the_actions(); ?>
                         </div>
                     </div>

@@ -10,7 +10,7 @@ use Rtcl\Helpers\Functions;
 
 global $listing;
 
-$sidebar_position = Functions::get_option_item( 'rtcl_moderation_settings', 'detail_page_sidebar_position', 'right' );
+$sidebar_position = Functions::get_option_item( 'rtcl_single_listing_settings', 'detail_page_sidebar_position', 'right' );
 $sidebar_class    = [
 	'col-md-3',
 	'order-2'
