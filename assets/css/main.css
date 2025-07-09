@@ -854,7 +854,6 @@ table .wp-block-table__cell-content,
 .rtcl-checkout .main-content .rtcl-checkout-content #rtcl-checkout-form .rtcl-submit-btn-wrap .rtcl-btn:hover,
 .rtcl .rtcl-payment-receipt .action-btn .rtcl-btn:hover,
 .rtcl.store-content-wrap .store-information .store-info .store-info-item.store-email #store-email-form .sc-submit:hover {
-	color: var(--rtcl-primary-color) !important;
 	background-color: transparent;
 	border: 1px solid var(--rtcl-primary-color);
 }
@@ -1290,6 +1289,11 @@ table .wp-block-table__cell-content,
 	animation: toTopFromBottom 0.3s forwards;
 }
 
+.header-icon-area .header-chat-icon span.rtcl-unread-badge {
+	top: -5px;
+	bottom: auto;
+}
+
 @media screen and (max-width: 480px) {
 	.header-icon-area .header-btn-area {
 		margin-top: 15px;
@@ -1438,8 +1442,8 @@ table .wp-block-table__cell-content,
 
 .rt-mobile-menu .mobile-menu-bar .header-mobile-icons a.header-chat-icon .rtcl-unread-badge {
 	position: absolute;
-	right: -3px;
-	top: -3px;
+	right: -9px;
+	top: -5px;
 	padding: 2px 2px;
 	width: 12px;
 	height: 12px;

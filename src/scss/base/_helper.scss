@@ -99,7 +99,6 @@
   transition: all 0.3s;
 
   &:hover {
-    color: var(--rtcl-primary-color) !important;
     background-color: transparent;
     border: 1px solid var(--rtcl-primary-color);
   }

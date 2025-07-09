@@ -282,6 +282,13 @@
     }
   }
 
+  .header-chat-icon {
+    span.rtcl-unread-badge {
+      top: -5px;
+      bottom: auto;
+    }
+  }
+
   .header-btn-area {
 
     @include mobile-screen() {
@@ -442,8 +449,8 @@
 
         .rtcl-unread-badge {
           position: absolute;
-          right: -3px;
-          top: -3px;
+          right: -9px;
+          top: -5px;
           padding: 2px 2px;
           width: 12px;
           height: 12px;

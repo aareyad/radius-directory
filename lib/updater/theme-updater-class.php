@@ -20,23 +20,23 @@ class EDD_Theme_Updater {
 
 		$args = wp_parse_args( $args, array(
 			'remote_api_url' => 'http://easydigitaldownloads.com',
-			'request_data' => array(),
-			'theme_slug' => get_template(),
-			'item_id' => '',
-			'license' => '',
-			'version' => '',
-			'author' => ''
+			'request_data'   => array(),
+			'theme_slug'     => get_template(),
+			'item_id'        => '',
+			'license'        => '',
+			'version'        => '',
+			'author'         => ''
 		) );
 		extract( $args );
 
-		$this->license = $license;
-		$this->item_id = $item_id;
-		$this->version = $version;
-		$this->theme_slug = sanitize_key( $theme_slug );
-		$this->author = $author;
+		$this->license        = $license;
+		$this->item_id        = $item_id;
+		$this->version        = $version;
+		$this->theme_slug     = sanitize_key( $theme_slug );
+		$this->author         = $author;
 		$this->remote_api_url = $remote_api_url;
-		$this->response_key = $this->theme_slug . '-update-response';
-		$this->strings = $strings;
+		$this->response_key   = $this->theme_slug . '-update-response';
+		$this->strings        = $strings;
 
 		add_filter( 'site_transient_update_themes', array( &$this, 'theme_update_transient' ) );
 		add_filter( 'delete_site_transient_update_themes', array( &$this, 'delete_theme_update_transient' ) );
@@ -62,7 +62,7 @@ class EDD_Theme_Updater {
 			return;
 		}
 
-		$update_url = wp_nonce_url( 'update.php?action=upgrade-theme&amp;theme=' . urlencode( $this->theme_slug ), 'upgrade-theme_' . $this->theme_slug );
+		$update_url     = wp_nonce_url( 'update.php?action=upgrade-theme&amp;theme=' . urlencode( $this->theme_slug ), 'upgrade-theme_' . $this->theme_slug );
 		$update_onclick = ' onclick="if ( confirm(\'' . esc_js( $strings['update-notice'] ) . '\') ) {return true;}return false;"';
 
 		if ( version_compare( $this->version, $api_response->new_version, '<' ) ) {
@@ -85,10 +85,19 @@ class EDD_Theme_Updater {
 	}
 
 	function theme_update_transient( $value ) {
+		if ( ! is_object( $value ) ) {
+			$value = new stdClass();
+		}
+
+		if ( ! isset( $value->response ) || ! is_array( $value->response ) ) {
+			$value->response = [];
+		}
+
 		$update_data = $this->check_for_update();
 		if ( $update_data ) {
 			$value->response[ $this->theme_slug ] = $update_data;
 		}
+
 		return $value;
 	}
 
@@ -104,11 +113,11 @@ class EDD_Theme_Updater {
 			$failed = false;
 
 			$api_params = array(
-				'edd_action' 	=> 'get_version',
-				'license' 		=> $this->license,
-				'item_id'    	=> $this->item_id,
-				'slug' 			=> $this->theme_slug,
-				'author'		=> $this->author
+				'edd_action' => 'get_version',
+				'license'    => $this->license,
+				'item_id'    => $this->item_id,
+				'slug'       => $this->theme_slug,
+				'author'     => $this->author
 			);
 
 			$response = wp_remote_post( $this->remote_api_url, array( 'timeout' => 15, 'body' => $api_params ) );
@@ -126,9 +135,10 @@ class EDD_Theme_Updater {
 
 			// If the response failed, try again in 30 minutes
 			if ( $failed ) {
-				$data = new stdClass;
+				$data              = new stdClass;
 				$data->new_version = $this->version;
 				set_transient( $this->response_key, $data, strtotime( '+30 minutes' ) );
+
 				return false;
 			}
 

@@ -94,7 +94,7 @@ do_action( 'rtcl_before_single_listing' );
 				<?php do_action( 'rtcl_single_listing_content_end', $listing ); ?>
 
                 <!-- Business Hours  -->
-				<?php if ( Functions::is_enable_business_hours() && ! empty( BusinessHoursController::get_business_hours( $listing->get_id() ) ) ): ?>
+				<?php if ( ! empty( BusinessHoursController::get_business_hours( $listing->get_id() ) ) ): ?>
                     <div class="content-block-gap"></div>
                     <div class="site-content-block classified-single-business-hour">
                         <div class="main-content">
