@@ -9,12 +9,12 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 1240;
 }
 
-add_action( 'after_setup_theme', 'radius_directory_load_textdomain' );
+add_action( 'init', 'radius_directory_load_textdomain' );
 function radius_directory_load_textdomain() {
 	load_theme_textdomain( 'radius-directory', get_template_directory() . '/languages' );
 }
 
-define( 'RADIUS_DIRECTORY_VERSION', '1.5.0' );
+define( 'RADIUS_DIRECTORY_VERSION', '1.5.1' );
 
 if ( ! defined( 'RT_DEBUG' ) ) {
 	require_once 'lib/updater/theme-updater.php';
