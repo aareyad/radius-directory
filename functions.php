@@ -10,8 +10,13 @@ if ( ! isset( $content_width ) ) {
 }
 
 add_action( 'init', 'radius_directory_load_textdomain' );
+add_action( 'after_setup_theme', 'radius_directory_theme_load' );
 function radius_directory_load_textdomain() {
 	load_theme_textdomain( 'radius-directory', get_template_directory() . '/languages' );
+}
+
+function radius_directory_theme_load() {
+	do_action( 'radius_directory_theme_init' );
 }
 
 define( 'RADIUS_DIRECTORY_VERSION', '1.5.1' );
@@ -22,5 +27,3 @@ if ( ! defined( 'RT_DEBUG' ) ) {
 require_once 'lib/class-tgm-plugin-activation.php';
 require_once 'inc/init.php';
 require_once 'inc/Customizer/sanitization.php';
-
-do_action( 'radius_directory_theme_init' );

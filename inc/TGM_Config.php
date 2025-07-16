@@ -27,7 +27,7 @@ class TGM_Config {
 				'slug'     => 'radius-directory-core',
 				'source'   => 'radius-directory-core.zip',
 				'required' => true,
-				'version'  => '1.0.2'
+				'version'  => '1.0.1'
 			],
 			[
 				'name'     => 'RT Framework',
