@@ -41,7 +41,7 @@ class TGM_Config {
 				'slug'     => 'rt-demo-importer',
 				'source'   => 'rt-demo-importer.zip',
 				'required' => false,
-				'version'  => '6.0.2'
+				'version'  => '6.1.0'
 			],
 
 			// Repository

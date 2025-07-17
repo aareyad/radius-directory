@@ -12,6 +12,8 @@ class EDD_Theme_Updater {
 	private $response_key;
 	private $theme_slug;
 	private $license_key;
+	private $license;
+	private $item_id;
 	private $version;
 	private $author;
 	protected $strings = null;

@@ -21,9 +21,8 @@ function radius_directory_theme_load() {
 
 define( 'RADIUS_DIRECTORY_VERSION', '1.5.1' );
 
-if ( ! defined( 'RT_DEBUG' ) ) {
-	require_once 'lib/updater/theme-updater.php';
-}
+
+require_once 'lib/updater/theme-updater.php';
 require_once 'lib/class-tgm-plugin-activation.php';
 require_once 'inc/init.php';
 require_once 'inc/Customizer/sanitization.php';
