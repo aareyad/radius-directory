@@ -6,7 +6,7 @@
  */
 
 if ( ! class_exists( 'Rtcl' ) ) {
-	return;
+    return;
 }
 
 use RadiusTheme\RadiusDirectory\Helper;
@@ -27,11 +27,11 @@ $typ_text = esc_html__( 'Select Type', 'radius-directory' );
 $selected_location = $selected_category = false;
 
 if ( get_query_var( 'rtcl_location' ) && $location = get_term_by( 'slug', get_query_var( 'rtcl_location' ), rtcl()->location ) ) {
-	$selected_location = $location;
+    $selected_location = $location;
 }
 
 if ( get_query_var( 'rtcl_category' ) && $category = get_term_by( 'slug', get_query_var( 'rtcl_category' ), rtcl()->category ) ) {
-	$selected_category = $category;
+    $selected_category = $category;
 }
 
 $orderby = strtolower( Functions::get_option_item( 'rtcl_archive_listing_settings', 'taxonomy_orderby', 'name' ) );
@@ -42,12 +42,12 @@ $style = Options::$options['listing_search_style'];
 <div class="rtcl rtcl-search rtcl-search-inline">
     <form action="<?php echo esc_url( Functions::get_filter_form_url() ); ?>"
           class="form-vertical rtcl-widget-search-form rtcl-search-inline-form cl-classified-listing-search-form rtin-style-<?php echo esc_attr( $style ); ?>">
-		<?php if ( ! empty( Options::$options['banner_search_location'] ) ): ?>
-			<?php if ( 'local' === Functions::location_type() ): ?>
+        <?php if ( ! empty( Options::$options['banner_search_location'] ) ): ?>
+            <?php if ( 'local' === Functions::location_type() ): ?>
                 <div class="<?php echo esc_attr( $loc_class ); ?>">
                     <label><?php esc_html_e( 'Where is it?', 'radius-directory' ); ?></label>
                     <div class="form-group">
-						<?php if ( $style == 'suggestion' ): ?>
+                        <?php if ( $style == 'suggestion' ): ?>
                             <div class="rtcl-search-input-button cl-classified-search-style-2 rtin-location">
                                 <input type="text" data-type="location" class="rtcl-autocomplete rtcl-location"
                                        placeholder="<?php echo esc_attr( $loc_text ); ?>"
@@ -55,45 +55,45 @@ $style = Options::$options['listing_search_style'];
                                 <input type="hidden" name="rtcl_location"
                                        value="<?php echo $selected_location ? $selected_location->slug : '' ?>">
                             </div>
-						<?php elseif ( $style == 'standard' ): ?>
+                        <?php elseif ( $style == 'standard' ): ?>
                             <div class="rtcl-search-input-button cl-classified-search-style-2 rtin-location">
-								<?php
-								$loc_args = [
-									'show_option_none'  => $loc_text,
-									'option_none_value' => '',
-									'taxonomy'          => rtcl()->location,
-									'name'              => 'rtcl_location',
-									'id'                => 'rtcl-location-search-' . wp_rand(),
-									'class'             => 'form-control rtcl-location-search',
-									'selected'          => get_query_var( 'rtcl_location' ),
-									'hierarchical'      => true,
-									'value_field'       => 'slug',
-									'depth'             => Functions::get_location_depth_limit(),
-									'orderby'           => $orderby,
-									'order'             => ( 'DESC' === $order ) ? 'DESC' : 'ASC',
-									'show_count'        => false,
-									'hide_empty'        => false,
-								];
-								if ( '_rtcl_order' === $orderby ) {
-									$args['orderby']  = 'meta_value_num';
-									$args['meta_key'] = '_rtcl_order';
-								}
-								wp_dropdown_categories( $loc_args );
-								?>
+                                <?php
+                                $loc_args = [
+                                        'show_option_none'  => $loc_text,
+                                        'option_none_value' => '',
+                                        'taxonomy'          => rtcl()->location,
+                                        'name'              => 'rtcl_location',
+                                        'id'                => 'rtcl-location-search-' . wp_rand(),
+                                        'class'             => 'form-control rtcl-location-search',
+                                        'selected'          => get_query_var( 'rtcl_location' ),
+                                        'hierarchical'      => true,
+                                        'value_field'       => 'slug',
+                                        'depth'             => Functions::get_location_depth_limit(),
+                                        'orderby'           => $orderby,
+                                        'order'             => ( 'DESC' === $order ) ? 'DESC' : 'ASC',
+                                        'show_count'        => false,
+                                        'hide_empty'        => false,
+                                ];
+                                if ( '_rtcl_order' === $orderby ) {
+                                    $loc_args['orderby']  = 'meta_value_num';
+                                    $loc_args['meta_key'] = '_rtcl_order';
+                                }
+                                wp_dropdown_categories( $loc_args );
+                                ?>
                             </div>
-						<?php elseif ( $style == 'dependency' ): ?>
+                        <?php elseif ( $style == 'dependency' ): ?>
                             <div class="rtcl-search-input-button cl-classified-search-style-2 rtin-location">
-								<?php
-								Functions::dropdown_terms( [
-									'show_option_none' => $loc_text,
-									'taxonomy'         => rtcl()->location,
-									'name'             => 'l',
-									'class'            => 'form-control',
-									'selected'         => $selected_location ? $selected_location->term_id : 0
-								] );
-								?>
+                                <?php
+                                Functions::dropdown_terms( [
+                                        'show_option_none' => $loc_text,
+                                        'taxonomy'         => rtcl()->location,
+                                        'name'             => 'l',
+                                        'class'            => 'form-control',
+                                        'selected'         => $selected_location ? $selected_location->term_id : 0
+                                ] );
+                                ?>
                             </div>
-						<?php else: ?>
+                        <?php else: ?>
                             <div class="rtcl-search-input-button rtcl-search-input-location">
                                 <span class="cl-input-icon">
                                     <img src="<?php echo esc_url( Helper::get_img( 'map.svg' ) ); ?>" alt="icon"/>
@@ -104,11 +104,11 @@ $style = Options::$options['listing_search_style'];
                                 <input type="hidden" class="rtcl-term-field" name="rtcl_location"
                                        value="<?php echo $selected_location ? esc_attr( $selected_location->slug ) : '' ?>">
                             </div>
-						<?php endif; ?>
+                        <?php endif; ?>
 
                     </div>
                 </div>
-			<?php else: ?>
+            <?php else: ?>
                 <div class="<?php echo esc_attr( $loc_class ); ?>">
                     <div class="form-group">
                         <div class="rtcl-search-input-button cl-classified-search-style-2 rtin-location">
@@ -124,7 +124,7 @@ $style = Options::$options['listing_search_style'];
                         </div>
                     </div>
                 </div>
-				<?php if ( ! empty( Options::$options['banner_search_radius'] ) ): ?>
+                <?php if ( ! empty( Options::$options['banner_search_radius'] ) ): ?>
                     <div class="<?php echo esc_attr( $radius_class ); ?>">
                         <div class="form-group">
                             <div class="rtcl-search-input-button cl-classified-search-style-2 rtin-radius">
@@ -135,56 +135,56 @@ $style = Options::$options['listing_search_style'];
                             </div>
                         </div>
                     </div>
-				<?php else: ?>
+                <?php else: ?>
                     <input type="hidden" class="distance" name="distance" value="30">
-				<?php endif; ?>
-			<?php endif; ?>
-		<?php endif; ?>
+                <?php endif; ?>
+            <?php endif; ?>
+        <?php endif; ?>
 
-		<?php if ( ! empty( Options::$options['banner_search_category'] ) ): ?>
+        <?php if ( ! empty( Options::$options['banner_search_category'] ) ): ?>
             <div class="<?php echo esc_attr( $cat_class ); ?>">
                 <div class="form-group">
                     <label><?php esc_html_e( 'In which category?', 'radius-directory' ); ?></label>
-					<?php if ( $style == 'suggestion' || $style == 'standard' ): ?>
+                    <?php if ( $style == 'suggestion' || $style == 'standard' ): ?>
                         <div class="rtcl-search-input-button cl-classified-search-style-2 rtin-category">
-							<?php
-							$cat_args = [
-								'show_option_none'  => $cat_text,
-								'option_none_value' => '',
-								'taxonomy'          => rtcl()->category,
-								'name'              => 'rtcl_category',
-								'id'                => 'rtcl-category-search-' . wp_rand(),
-								'class'             => 'form-control rtcl-category-search',
-								'selected'          => get_query_var( 'rtcl_category' ),
-								'hierarchical'      => true,
-								'value_field'       => 'slug',
-								'depth'             => Functions::get_category_depth_limit(),
-								'orderby'           => $orderby,
-								'order'             => ( 'DESC' === $order ) ? 'DESC' : 'ASC',
-								'show_count'        => false,
-								'hide_empty'        => false,
-							];
-							if ( '_rtcl_order' === $orderby ) {
-								$args['orderby']  = 'meta_value_num';
-								$args['meta_key'] = '_rtcl_order';
-							}
-							wp_dropdown_categories( $cat_args );
-							?>
+                            <?php
+                            $cat_args = [
+                                    'show_option_none'  => $cat_text,
+                                    'option_none_value' => '',
+                                    'taxonomy'          => rtcl()->category,
+                                    'name'              => 'rtcl_category',
+                                    'id'                => 'rtcl-category-search-' . wp_rand(),
+                                    'class'             => 'form-control rtcl-category-search',
+                                    'selected'          => get_query_var( 'rtcl_category' ),
+                                    'hierarchical'      => true,
+                                    'value_field'       => 'slug',
+                                    'depth'             => Functions::get_category_depth_limit(),
+                                    'orderby'           => $orderby,
+                                    'order'             => ( 'DESC' === $order ) ? 'DESC' : 'ASC',
+                                    'show_count'        => false,
+                                    'hide_empty'        => false,
+                            ];
+                            if ( '_rtcl_order' === $orderby ) {
+                                $cat_args['orderby']  = 'meta_value_num';
+                                $cat_args['meta_key'] = '_rtcl_order';
+                            }
+                            wp_dropdown_categories( $cat_args );
+                            ?>
                         </div>
-					<?php elseif ( $style == 'dependency' ): ?>
+                    <?php elseif ( $style == 'dependency' ): ?>
                         <div class="rtcl-search-input-button cl-classified-search-style-2 cl-classified-search-dependency rtin-category">
-							<?php
-							Functions::dropdown_terms( [
-								'show_option_none'  => $cat_text,
-								'option_none_value' => - 1,
-								'taxonomy'          => rtcl()->category,
-								'name'              => 'c',
-								'class'             => 'form-control rtcl-category-search',
-								'selected'          => $selected_category ? $selected_category->term_id : 0
-							] );
-							?>
+                            <?php
+                            Functions::dropdown_terms( [
+                                    'show_option_none'  => $cat_text,
+                                    'option_none_value' => - 1,
+                                    'taxonomy'          => rtcl()->category,
+                                    'name'              => 'c',
+                                    'class'             => 'form-control rtcl-category-search',
+                                    'selected'          => $selected_category ? $selected_category->term_id : 0
+                            ] );
+                            ?>
                         </div>
-					<?php else: ?>
+                    <?php else: ?>
                         <div class="rtcl-search-input-button rtcl-search-input-category">
                             <span class="cl-input-icon">
                                 <img src="<?php echo esc_url( Helper::get_img( 'grid.svg' ) ); ?>" alt="icon"/>
@@ -195,21 +195,21 @@ $style = Options::$options['listing_search_style'];
                             <input type="hidden" name="rtcl_category" class="rtcl-term-field"
                                    value="<?php echo $selected_category ? esc_attr( $selected_category->slug ) : '' ?>">
                         </div>
-					<?php endif; ?>
+                    <?php endif; ?>
 
                 </div>
             </div>
-		<?php endif; ?>
+        <?php endif; ?>
 
-		<?php if ( ! empty( Options::$options['banner_search_type'] ) ): ?>
+        <?php if ( ! empty( Options::$options['banner_search_type'] ) ): ?>
             <div class="<?php echo esc_attr( $typ_class ); ?>">
                 <div class="form-group">
                     <label><?php esc_html_e( 'In which type?', 'radius-directory' ); ?></label>
                     <div class="rtcl-search-input-button rtcl-search-input-type">
-						<?php
-						$listing_types = Functions::get_listing_types();
-						$listing_types = empty( $listing_types ) ? [] : $listing_types;
-						?>
+                        <?php
+                        $listing_types = Functions::get_listing_types();
+                        $listing_types = empty( $listing_types ) ? [] : $listing_types;
+                        ?>
                         <div class="dropdown cl-classified-listing-search-dropdown">
                             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
                                     aria-haspopup="true"
@@ -217,19 +217,19 @@ $style = Options::$options['listing_search_style'];
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#"
                                    data-adtype=""><?php echo esc_html( $typ_text ); ?></a>
-								<?php foreach ( $listing_types as $key => $listing_type ): ?>
+                                <?php foreach ( $listing_types as $key => $listing_type ): ?>
                                     <a class="dropdown-item" href="#"
                                        data-adtype="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $listing_type ); ?></a>
-								<?php endforeach; ?>
+                                <?php endforeach; ?>
                             </div>
                             <input type="hidden" name="filters[ad_type]">
                         </div>
                     </div>
                 </div>
             </div>
-		<?php endif; ?>
+        <?php endif; ?>
 
-		<?php if ( ! empty( Options::$options['banner_search_keyword'] ) ): ?>
+        <?php if ( ! empty( Options::$options['banner_search_keyword'] ) ): ?>
             <div class="<?php echo esc_attr( $key_class ); ?>">
                 <div class="form-group">
                     <label><?php esc_html_e( 'What are you looking for?', 'radius-directory' ); ?></label>
@@ -237,16 +237,16 @@ $style = Options::$options['listing_search_style'];
                         <input type="text" data-type="listing" name="q" class="rtcl-autocomplete"
                                placeholder="<?php esc_attr_e( 'Enter Keyword here ...', 'radius-directory' ); ?>"
                                value="<?php if ( isset( $_GET['q'] ) ) {
-							       echo esc_attr( Functions::clean( wp_unslash( ( $_GET['q'] ) ) ) );
-						       } ?>"/>
+                                   echo esc_attr( Functions::clean( wp_unslash( ( $_GET['q'] ) ) ) );
+                               } ?>"/>
                     </div>
                 </div>
             </div>
-		<?php endif; ?>
+        <?php endif; ?>
 
         <div class="<?php echo esc_attr( $btn_class ); ?>">
             <button type="submit" class="rtin-search-btn rdtheme-button-1">
-				<?php esc_html_e( 'Search', 'radius-directory' ); ?>
+                <?php esc_html_e( 'Search', 'radius-directory' ); ?>
                 <i class="fas fa-search" aria-hidden="true"></i>
             </button>
         </div>
