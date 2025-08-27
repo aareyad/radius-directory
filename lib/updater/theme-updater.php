@@ -6,13 +6,13 @@
  */
 
 // Includes the files needed for the theme updater
-if ( !class_exists( 'EDD_Theme_Updater_Admin' ) ) {
+if ( ! class_exists( 'EDD_Theme_Updater_Admin' ) ) {
 	include( dirname( __FILE__ ) . '/theme-updater-admin.php' );
 }
 
 add_action( 'after_setup_theme', 'rdtheme_edd_theme_updater', 20 );
 
-function rdtheme_edd_theme_updater(){
+function rdtheme_edd_theme_updater() {
 	$theme_data = wp_get_theme( get_template() );
 
 	// Config settings
@@ -37,6 +37,7 @@ function rdtheme_edd_theme_updater(){
 		'status-unknown'            => __( 'License status is unknown.', 'radius-directory' ),
 		'renew'                     => __( 'Renew?', 'radius-directory' ),
 		'unlimited'                 => __( 'unlimited', 'radius-directory' ),
+		'lifetime-license'          => __( 'License type: lifetime.', 'radius-directory' ),
 		'license-key-is-active'     => __( 'License key is active.', 'radius-directory' ),
 		'expires%s'                 => __( 'Expires %s.', 'radius-directory' ),
 		'%1$s/%2$-sites'            => __( 'You have %1$s / %2$s sites activated.', 'radius-directory' ),
@@ -47,8 +48,10 @@ function rdtheme_edd_theme_updater(){
 		'license-key-is-disabled'   => __( 'License key is disabled.', 'radius-directory' ),
 		'site-is-inactive'          => __( 'Site is inactive.', 'radius-directory' ),
 		'license-status-unknown'    => __( 'License status is unknown.', 'radius-directory' ),
-		'update-notice'             => __( "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update.", 'radius-directory' ),
-		'update-available'          => __('<strong>%1$s %2$s</strong> is available. <a href="%3$s" class="thickbox" title="%4s">Check out what\'s new</a> or <a href="%5$s"%6$s>update now</a>.', 'radius-directory' )
+		'update-notice'             => __( "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update.",
+			'radius-directory' ),
+		'update-available'          => __( '<strong>%1$s %2$s</strong> is available. <a href="%3$s" class="thickbox" title="%4s">Check out what\'s new</a> or <a href="%5$s"%6$s>update now</a>.',
+			'radius-directory' )
 	);
 
 	// Loads the updater classes

@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: RadiusTheme <info@radiustheme.com>\n"
-"POT-Creation-Date: 2025-07-17 05:26+0000\n"
+"POT-Creation-Date: 2025-08-27 12:01+0000\n"
 "Project-Id-Version: undefined\n"
 "Report-Msgid-Bugs-To: techlabpro15@gmail.com\n"
 "X-Poedit-Basepath: ..\n"
@@ -737,11 +737,11 @@ msgstr ""
 msgid "Error Page"
 msgstr ""
 
-#: lib/updater/theme-updater-admin.php:475
+#: lib/updater/theme-updater-admin.php:479
 msgid "activate license"
 msgstr ""
 
-#: lib/updater/theme-updater-admin.php:478
+#: lib/updater/theme-updater-admin.php:482
 msgid "Please, %s to get update notice and automatic update."
 msgstr ""
 
@@ -769,7 +769,7 @@ msgstr ""
 msgid "Activate License"
 msgstr ""
 
-#: lib/updater/theme-updater.php:37, lib/updater/theme-updater.php:49
+#: lib/updater/theme-updater.php:37, lib/updater/theme-updater.php:50
 msgid "License status is unknown."
 msgstr ""
 
@@ -782,46 +782,50 @@ msgid "unlimited"
 msgstr ""
 
 #: lib/updater/theme-updater.php:40
-msgid "License key is active."
+msgid "License type: lifetime."
 msgstr ""
 
 #: lib/updater/theme-updater.php:41
-msgid "Expires %s."
+msgid "License key is active."
 msgstr ""
 
 #: lib/updater/theme-updater.php:42
-msgid "You have %1$s / %2$s sites activated."
+msgid "Expires %s."
 msgstr ""
 
 #: lib/updater/theme-updater.php:43
-msgid "License key expired %s."
+msgid "You have %1$s / %2$s sites activated."
 msgstr ""
 
 #: lib/updater/theme-updater.php:44
-msgid "License key has expired."
+msgid "License key expired %s."
 msgstr ""
 
 #: lib/updater/theme-updater.php:45
-msgid "License keys do not match."
+msgid "License key has expired."
 msgstr ""
 
 #: lib/updater/theme-updater.php:46
-msgid "License is inactive."
+msgid "License keys do not match."
 msgstr ""
 
 #: lib/updater/theme-updater.php:47
-msgid "License key is disabled."
+msgid "License is inactive."
 msgstr ""
 
 #: lib/updater/theme-updater.php:48
+msgid "License key is disabled."
+msgstr ""
+
+#: lib/updater/theme-updater.php:49
 msgid "Site is inactive."
 msgstr ""
 
-#: lib/updater/theme-updater.php:50
+#: lib/updater/theme-updater.php:51
 msgid "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update."
 msgstr ""
 
-#: lib/updater/theme-updater.php:51
+#: lib/updater/theme-updater.php:53
 msgid "<strong>%1$s %2$s</strong> is available. <a href=\"%3$s\" class=\"thickbox\" title=\"%4s\">Check out what's new</a> or <a href=\"%5$s\"%6$s>update now</a>."
 msgstr ""
 

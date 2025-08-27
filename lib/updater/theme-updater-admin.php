@@ -382,9 +382,13 @@ class EDD_Theme_Updater_Admin {
 		// Get expire date
 		$expires = false;
 		if ( isset( $license_data->expires ) ) {
-			$expires    = date_i18n( get_option( 'date_format' ), strtotime( $license_data->expires ) );
-			$renew_link = '<a href="' . esc_url( $this->get_renewal_link() ) . '" target="_blank">' . $strings['renew'] . '</a>';
-		}
+            if('lifetime' === $license_data->expires) {
+                $expires = 'lifetime';
+            } else {
+                $expires    = date_i18n( get_option( 'date_format' ), strtotime( $license_data->expires ) );
+            }
+            $renew_link = '<a href="' . esc_url( $this->get_renewal_link() ) . '" target="_blank">' . $strings['renew'] . '</a>';
+        }
 
 		// Get site counts
 		$site_count    = ! empty( $license_data->site_count ) ? $license_data->site_count : ''; //@kowsar
@@ -397,8 +401,8 @@ class EDD_Theme_Updater_Admin {
 
 		if ( $license_data->license == 'valid' ) {
 			$message = $strings['license-key-is-active'] . ' ';
-			if ( $expires ) {
-				$message .= sprintf( $strings['expires%s'], $expires ) . ' ';
+            if ( $expires ) {
+                $message .= 'lifetime' === $expires ? $strings['lifetime-license'] : sprintf( $strings['expires%s'], $expires ) . ' ';
 			}
 			if ( $site_count && $license_limit ) {
 				$message .= sprintf( $strings['%1$s/%2$-sites'], $site_count, $license_limit );

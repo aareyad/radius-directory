@@ -19,7 +19,7 @@ function radius_directory_theme_load() {
 	do_action( 'radius_directory_theme_init' );
 }
 
-define( 'RADIUS_DIRECTORY_VERSION', '1.5.1' );
+define( 'RADIUS_DIRECTORY_VERSION', '1.5.2' );
 
 
 require_once 'lib/updater/theme-updater.php';
