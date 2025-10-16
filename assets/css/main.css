@@ -4627,6 +4627,59 @@ a.scrollToTop:focus {
 	background-color: var(--rtcl-secondary-color);
 }
 
+/*-------------------------------------
+#. Single Listing Builder
+---------------------------------------*/
+.rtcl .rtcl-sl-containers {
+	gap: 30px;
+}
+
+.rtcl .rtcl-sl-containers .rtcl-related-listing-wrap {
+	padding: 0;
+	margin-top: 10px !important;
+}
+
+.rtcl .rtcl-sl-containers .rtcl-Reviews.rtcl {
+	margin-top: 0;
+}
+
+.rtcl-sl-container .rtcl-sl-section {
+	background: #fff;
+	padding: 25px;
+	border-radius: 8px;
+	box-shadow: 0 0 20px #f0f0f0;
+	border: none;
+}
+
+.rtcl-sl-container .rtcl-sl-section .rtcl-sl-section-header {
+	border: none;
+	color: #000000;
+	margin: 0 0 25px;
+	padding: 0;
+}
+
+.rtcl-sl-container .rtcl-sl-section .rtcl-sl-section-header .rtcl-sl-section-title {
+	font-size: 20px;
+	line-height: 1;
+	margin: 0;
+	font-weight: 700;
+}
+
+.rtcl-sl-container .rtcl-sl-section .rtcl-sl-element-wrap .content-block-gap {
+	display: none;
+}
+
+.rtcl-sl-container .rtcl-sl-section .rtcl-sl-element-wrap .main-content {
+	box-shadow: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+.rtcl-sl-container .rtcl-sl-section .rtcl-sl-element-wrap .main-content .main-title {
+	display: none;
+}
+
 .rtcl .rtcl-Reviews.rtcl {
 	margin-top: 30px;
 	background: transparent;

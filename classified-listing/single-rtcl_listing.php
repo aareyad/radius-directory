@@ -7,6 +7,7 @@
  */
 
 use Rtcl\Helpers\Functions;
+use Rtcl\Services\FormBuilder\FBHelper;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -25,14 +26,21 @@ do_action( 'rtcl_before_content_wrapper' );
  * @hooked rtcl_breadcrumb - 20
  */
 do_action( 'rtcl_before_main_content' );
+
+global $listing;
+$enableBuilder = FBHelper::isEnableSingleBuilder( $listing );
+
+while ( have_posts() ) :
+	the_post();
+
+	if ( $enableBuilder ) {
+		$form = $listing->getForm();
+		Functions::get_template( 'single-layout/builder', [ 'form' => $form ] );
+	} else {
+		Functions::get_template_part( 'content', 'single-rtcl_listing' );
+	}
+endwhile;
 ?>
-
-<?php while ( have_posts() ) : ?>
-	<?php the_post(); ?>
-
-	<?php Functions::get_template_part( 'content', 'single-rtcl_listing' ); ?>
-
-<?php endwhile; // end of the loop. ?>
 
 <?php
 /**
