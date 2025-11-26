@@ -16,11 +16,10 @@ class Helper {
 	}
 
 	public static function has_full_width() {
-		$theme_option_full_width = Options::$layout == 'full-width';
-		$not_active_sidebar      = ! is_active_sidebar( 'sidebar' );
-		$bool                    = $theme_option_full_width || $not_active_sidebar;
+		$full_width_layout  = Options::$layout == 'full-width';
+		$not_active_sidebar = ! is_active_sidebar( Options::$sidebar );
 
-		return $bool;
+		return $full_width_layout || $not_active_sidebar;
 	}
 
 	public static function the_layout_class() {
@@ -160,7 +159,7 @@ class Helper {
 	/**
 	 * Get site header list
 	 *
-	 * @param string $return_type
+	 * @param  string  $return_type
 	 *
 	 * @return array
 	 */
@@ -169,13 +168,13 @@ class Helper {
 			return [
 				'1' => [
 					'image' => trailingslashit( get_template_directory_uri() ) . 'assets/img/header-1.png',
-					'name'  => esc_html__( 'Style 1', 'radius-directory' )
-				]
+					'name'  => esc_html__( 'Style 1', 'radius-directory' ),
+				],
 			];
 		} else {
 			return [
 				'default' => esc_html__( 'Default', 'radius-directory' ),
-				'1'       => esc_html__( 'Layout 1', 'radius-directory' )
+				'1'       => esc_html__( 'Layout 1', 'radius-directory' ),
 			];
 		}
 	}
@@ -183,7 +182,7 @@ class Helper {
 	/**
 	 * Get site footer list
 	 *
-	 * @param string $return_type
+	 * @param  string  $return_type
 	 *
 	 * @return array
 	 */
@@ -192,13 +191,13 @@ class Helper {
 			$layout = [
 				'1' => [
 					'image' => trailingslashit( get_template_directory_uri() ) . 'assets/img/footer-1.png',
-					'name'  => esc_html__( 'Layout 1', 'radius-directory' )
-				]
+					'name'  => esc_html__( 'Layout 1', 'radius-directory' ),
+				],
 			];
 		} else {
 			$layout = [
 				'default' => esc_html__( 'Default', 'radius-directory' ),
-				'1'       => esc_html__( 'Layout 1', 'radius-directory' )
+				'1'       => esc_html__( 'Layout 1', 'radius-directory' ),
 			];
 		}
 

@@ -1,6 +1,6 @@
 const project = require('./package.json');
 const gulp = require('gulp');
-const sass = require('gulp-sass')(require('node-sass'));
+const sass = require('gulp-sass')(require('sass'));
 
 const SassAutoprefix = require('less-plugin-autoprefix');
 const autoprefix = new SassAutoprefix({browsers: ["> 1%", "last 2 versions"]});

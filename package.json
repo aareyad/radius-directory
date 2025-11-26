@@ -21,7 +21,6 @@
     "gulp-wp-pot": "^2.5.0",
     "gulp-zip": "^4.2.0",
     "less-plugin-autoprefix": "^1.4.1",
-    "node-sass": "^8.0.0",
     "rollup-plugin-babel": "^4.4.0",
     "sass": "^1.35.2"
   },

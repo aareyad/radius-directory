@@ -117,6 +117,13 @@
     }
   }
 
+  .rtcl-widget-ajax-filter-class {
+    .rtcl-ajax-filter-wrap {
+      background-color: transparent;
+      padding: 0;
+    }
+  }
+
   .rtcl-category-list {
     li {
       img {
@@ -425,7 +432,6 @@
     padding: 25px;
 
     .rtcl-ajax-filter-item {
-      margin-top: 20px;
 
       &:first-child {
         margin-top: 0;
@@ -455,7 +461,6 @@
       }
 
       .rtcl-filter-title-wrap {
-        margin-bottom: 20px;
 
         .rtcl-filter-title {
           font-weight: 700;
