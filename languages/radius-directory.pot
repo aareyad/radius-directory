@@ -1,4 +1,4 @@
-# Copyright (C) 2025 radius-directory
+# Copyright (C) 2026 radius-directory
 # This file is distributed under the same license as the radius-directory package.
 msgid ""
 msgstr ""
@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: RadiusTheme <info@radiustheme.com>\n"
-"POT-Creation-Date: 2025-11-26 05:49+0000\n"
+"POT-Creation-Date: 2026-03-28 10:30+0000\n"
 "Project-Id-Version: undefined\n"
 "Report-Msgid-Bugs-To: techlabpro15@gmail.com\n"
 "X-Poedit-Basepath: ..\n"
@@ -563,39 +563,39 @@ msgstr ""
 msgid "Select Category"
 msgstr ""
 
-#: classified-listing/custom/listing-search.php:25, classified-listing/custom/listing-search.php:262
+#: classified-listing/custom/listing-search.php:25, classified-listing/custom/listing-search.php:265
 msgid "Select Type"
 msgstr ""
 
-#: classified-listing/custom/listing-search.php:138
+#: classified-listing/custom/listing-search.php:144
 msgid "Select a location"
 msgstr ""
 
-#: classified-listing/custom/listing-search.php:161
+#: classified-listing/custom/listing-search.php:167
 msgid "Radius"
 msgstr ""
 
-#: classified-listing/custom/listing-search.php:54
+#: classified-listing/custom/listing-search.php:60
 msgid "Where is it?"
 msgstr ""
 
-#: classified-listing/custom/listing-search.php:181
+#: classified-listing/custom/listing-search.php:187
 msgid "In which category?"
 msgstr ""
 
-#: classified-listing/custom/listing-search.php:252
+#: classified-listing/custom/listing-search.php:257
 msgid "In which type?"
 msgstr ""
 
-#: classified-listing/custom/listing-search.php:296
+#: classified-listing/custom/listing-search.php:289
 msgid "What are you looking for?"
 msgstr ""
 
-#: classified-listing/custom/listing-search.php:301
+#: classified-listing/custom/listing-search.php:294
 msgid "Enter Keyword here ..."
 msgstr ""
 
-#: classified-listing/custom/listing-search.php:316
+#: classified-listing/custom/listing-search.php:309
 msgid "Search"
 msgstr ""
 
