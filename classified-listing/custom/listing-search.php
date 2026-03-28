@@ -24,7 +24,7 @@ $loc_text = esc_html__( 'Select Location', 'radius-directory' );
 $cat_text = esc_html__( 'Select Category', 'radius-directory' );
 $typ_text = esc_html__( 'Select Type', 'radius-directory' );
 
-$selected_location = $selected_category = false;
+$selected_location = $selected_category = $selected_type = false;
 
 if ( get_query_var( 'rtcl_location' ) && $location = get_term_by( 'slug', get_query_var( 'rtcl_location' ), rtcl()->location ) ) {
     $selected_location = $location;
@@ -32,6 +32,12 @@ if ( get_query_var( 'rtcl_location' ) && $location = get_term_by( 'slug', get_qu
 
 if ( get_query_var( 'rtcl_category' ) && $category = get_term_by( 'slug', get_query_var( 'rtcl_category' ), rtcl()->category ) ) {
     $selected_category = $category;
+}
+
+if ( ! empty( $_REQUEST['filters']['ad_type'] ) ) {
+    $selected_type = sanitize_text_field( $_REQUEST['filters']['ad_type'] );
+} elseif ( ! empty( $_REQUEST['filter_ad_type'] ) ) {
+    $selected_type = sanitize_text_field( $_REQUEST['filter_ad_type'] );
 }
 
 $orderby = strtolower( Functions::get_option_item( 'rtcl_archive_listing_settings', 'taxonomy_orderby', 'name' ) );
@@ -248,32 +254,19 @@ $style = Options::$options['listing_search_style'];
             <div class="<?php
             echo esc_attr( $typ_class ); ?>">
                 <div class="form-group">
-                    <label><?php
-                        esc_html_e( 'In which type?', 'radius-directory' ); ?></label>
+                    <label for="filter-ad-type"><?php esc_html_e( 'In which type?', 'radius-directory' ); ?></label>
                     <div class="rtcl-search-input-button rtcl-search-input-type">
                         <?php
                         $listing_types = Functions::get_listing_types();
                         $listing_types = empty( $listing_types ) ? [] : $listing_types;
                         ?>
-                        <div class="dropdown cl-classified-listing-search-dropdown">
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"><?php
-                                esc_html_e( 'Select Type', 'radius-directory' ); ?></button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#"
-                                   data-adtype=""><?php
-                                    echo esc_html( $typ_text ); ?></a>
-                                <?php
-                                foreach ( $listing_types as $key => $listing_type ): ?>
-                                    <a class="dropdown-item" href="#"
-                                       data-adtype="<?php
-                                       echo esc_attr( $key ); ?>"><?php
-                                        echo esc_html( $listing_type ); ?></a>
-                                <?php
-                                endforeach; ?>
-                            </div>
-                            <input type="hidden" name="filters[ad_type]">
+                        <div class="cl-classified-listing-search-dropdown">
+                            <select id="filter-ad-type" name="filters[ad_type]" class="form-control">
+                                <option value=""><?php esc_html_e( 'Select Type', 'radius-directory' ); ?></option>
+                                <?php foreach ( $listing_types as $key => $listing_type ): ?>
+                                    <option <?php selected( $key, $selected_type ); ?> value="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $listing_type ); ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
                 </div>
