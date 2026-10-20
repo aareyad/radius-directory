@@ -86,6 +86,10 @@ class Listing_Functions {
 	public function rtcl_filter_hook() {
 		add_filter( 'rtcl_listings_shortcode_show_top_listings', '__return_false' );
 		add_filter( 'rtcl_bootstrap_dequeue', '__return_false' );
+        add_filter( 'rtcl_cat_box_alignment', function () {
+            return 'center';
+        } );
+        add_filter( 'rtcl_force_classic_style', '__return_true' );
 		add_filter( 'rtcl_listing_the_excerpt', function ( $excerpt ) {
 			return wp_trim_words( $excerpt, 12 );
 		} );

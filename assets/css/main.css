@@ -3304,13 +3304,15 @@ a.scrollToTop:focus {
 }
 
 .rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-listing-user-info .rtcl-list-group {
-	padding: 0;
+	padding: 0 !important;
+	gap: 12px;
 }
 
 .rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-listing-user-info.contact-form {
 	padding: 0;
 	border: none;
 	box-shadow: none;
+	margin-bottom: 10px;
 }
 
 .rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-list-group-item {
@@ -3321,13 +3323,17 @@ a.scrollToTop:focus {
 	font-size: 16px;
 }
 
+.rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-list-group-item.rtcl-do-email {
+	margin-bottom: 0;
+}
+
 .rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-list-group-item .media {
 	display: inline-flex;
 	width: 100%;
 }
 
-.rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-list-group-item .media .rtcl-icon {
-	display: none;
+.rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-list-group-item .media>.rtcl-icon {
+	display: none !important;
 }
 
 .rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-list-group-item .media-body {
@@ -3356,11 +3362,6 @@ a.scrollToTop:focus {
 	display: block;
 }
 
-.rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-list-group-item .numbers:hover {
-	background-color: var(--rtcl-primary-color);
-	color: #ffffff;
-}
-
 .rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-list-group-item.rtin-author {
 	margin-bottom: 15px;
 	gap: 10px;
@@ -3376,6 +3377,11 @@ a.scrollToTop:focus {
 	color: #797f89;
 	font-size: 16px;
 	margin-bottom: 0;
+}
+
+.rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-list-group-item.reveal-phone {
+	background-color: transparent !important;
+	margin: 0 !important;
 }
 
 .rtcl .rtcl-content-wrapper .listing-sidebar .rtcl-list-group-item.reveal-phone .media>.rtcl-icon {
@@ -3653,11 +3659,12 @@ a.scrollToTop:focus {
 	padding: 0;
 	line-height: 36px;
 	text-align: center;
+	background-color: #fff;
 }
 
 .rtcl .rtcl-listings-actions .rtcl-view-switcher .rtcl-view-trigger.active {
 	background-color: var(--rtcl-primary-color);
-	border-color: transparent;
+	border-color: var(--rtcl-primary-color);
 	color: #ffffff;
 	box-shadow: 0 4px 10px rgba(var(--rtcl-primary-color), 0.5);
 }
@@ -3924,6 +3931,8 @@ a.scrollToTop:focus {
 
 .rtcl .rtcl-list-view .rtcl-listing-item .item-content .listing-action-price .rtcl-price-wrap {
 	margin-top: 0;
+	border: none;
+	padding-top: 0;
 }
 
 @media screen and (max-width: 767px) {
@@ -3972,6 +3981,7 @@ a.scrollToTop:focus {
 .rtcl .rtcl-list-view .rtcl-listing-item .item-content .listing-action-price .listing-meta-action .rtcl-btn a .rtcl-icon,
 .rtcl .rtcl-list-view .rtcl-listing-item .item-content .listing-action-price .listing-meta-action .rtcl-btn i .rtcl-icon {
 	color: inherit;
+	margin: 0;
 }
 
 .rtcl .rtcl-list-view .rtcl-listing-item .item-content .listing-action-price .listing-meta-action .rtcl-btn a:hover,
@@ -4147,7 +4157,6 @@ a.scrollToTop:focus {
 	font-size: 18px;
 	height: 40px;
 	width: 40px;
-	left: -20px;
 }
 
 #rtcl-compare-wrap #rtcl-compare-panel-btn .rtcl-compare-listing-count {
@@ -4905,6 +4914,7 @@ body.rtcl-account:not(.page-template-rtcl-canvas_template) .site-content-block .
 	background-color: transparent;
 	box-shadow: none;
 	padding: 0;
+	border: none;
 }
 
 .rtcl .rtcl-checkout-pricing-wrapper .rtcl-checkout-pricing .rtcl-membership-promotions .promotion-item>span:before {

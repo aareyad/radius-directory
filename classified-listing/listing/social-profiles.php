@@ -35,8 +35,18 @@ if (!Functions::is_enable_social_profiles() || empty($social_profiles) || empty(
         foreach ($social_list as $item => $value) {
             if (!empty($social_profiles[$item])) {
                 ?>
-                <a target="_blank" href="<?php echo esc_url($social_profiles[$item]) ?>" title="<?php echo esc_attr($value) ?>"><i
-                            class="rtcl-icon rtcl-icon-<?php echo esc_attr($item) ?>"></i></a>
+                <a target="_blank" href="<?php echo esc_url($social_profiles[$item]) ?>" title="<?php echo esc_attr($value) ?>">
+                    <?php
+                    if ( 'twitter' === $item ) {
+                        $iconClass = 'fa-brands fa-x-twitter';
+                    } else if ( 'tiktok' === $item ) {
+                        $iconClass = 'fa-brands fa-tiktok';
+                    } else {
+                        $iconClass = 'rtcl-icon-' . $item;
+                    }
+                    ?>
+                    <i class="rtcl-icon <?php echo esc_attr( $iconClass ); ?>"></i>
+                </a>
                 <?php
             }
         }

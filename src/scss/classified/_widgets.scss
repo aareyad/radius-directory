@@ -203,13 +203,15 @@
         }
 
         .rtcl-list-group {
-          padding: 0;
+          padding: 0 !important;
+          gap: 12px;
         }
 
         &.contact-form {
           padding: 0;
           border: none;
           box-shadow: none;
+          margin-bottom: 10px;
         }
 
       }
@@ -221,12 +223,16 @@
         margin-bottom: 10px;
         font-size: 16px;
 
+        &.rtcl-do-email {
+          margin-bottom: 0;
+        }
+
         .media {
           display: inline-flex;
           width: 100%;
 
-          .rtcl-icon {
-            display: none;
+          & > .rtcl-icon {
+            display: none !important;
           }
         }
 
@@ -258,8 +264,7 @@
           }
 
           &:hover {
-            background-color: var(--rtcl-primary-color);
-            color: $white;
+
           }
         }
 
@@ -281,6 +286,9 @@
         }
 
         &.reveal-phone {
+          background-color: transparent !important;
+          margin: 0 !important;
+
           .media {
             & > .rtcl-icon {
               display: none;
@@ -386,7 +394,7 @@
               border-color: var(--rtcl-primary-color) !important;
 
               .rtcl-icon {
-                color: $white ;
+                color: $white;
               }
             }
           }
